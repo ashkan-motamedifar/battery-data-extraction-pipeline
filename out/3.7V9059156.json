@@ -1,0 +1,36 @@
+{
+  "source_file": "3.7V9059156.pdf",
+  "manufacturer": "AA Portable Power Corp",
+  "model": "PL-9059156",
+  "chemistry": "Li-polymer",
+  "form_factor": "pouch",
+  "nominal_voltage_v": 3.7,
+  "capacity": {
+    "nominal_mah": 10000.0,
+    "minimum_mah": null,
+    "c_rate_condition": "0.2C5A",
+    "test_temperature_celsius": null,
+    "raw": "Nominal Capacity 11500 mAh 0.2C5A discharge; Typial Capacity 10000 mAh 0.2C5A discharge"
+  },
+  "operating_temperature": {
+    "min_celsius": -20.0,
+    "max_celsius": 60.0,
+    "raw": "Working temperature：-20～60℃"
+  },
+  "charge_temperature": {
+    "min_celsius": 0.0,
+    "max_celsius": 40.0,
+    "raw": "Working temperature：0～40℃"
+  },
+  "storage_temperature": {
+    "min_celsius": -20.0,
+    "max_celsius": 45.0,
+    "raw": "-20～45℃ (≤1month)"
+  },
+  "charge_cutoff_voltage_v": 4.2,
+  "discharge_cutoff_voltage_v": 2.75,
+  "max_continuous_discharge_current_a": 23.0,
+  "internal_resistance_mohm": 15.0,
+  "cycle_life": 300,
+  "weight_g": 196.0
+}

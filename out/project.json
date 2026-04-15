@@ -1,0 +1,18 @@
+{
+  "source_file": "project.pdf",
+  "manufacturer": null,
+  "model": null,
+  "chemistry": null,
+  "form_factor": null,
+  "nominal_voltage_v": null,
+  "capacity": null,
+  "operating_temperature": null,
+  "charge_temperature": null,
+  "storage_temperature": null,
+  "charge_cutoff_voltage_v": null,
+  "discharge_cutoff_voltage_v": null,
+  "max_continuous_discharge_current_a": null,
+  "internal_resistance_mohm": null,
+  "cycle_life": null,
+  "weight_g": null
+}
