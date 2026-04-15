@@ -1,0 +1,17 @@
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.env
+
+# Editors / tooling
+.vscode/
+.idea/
+
+# Claude Code local settings (user-specific, should not be shared)
+.claude/settings.local.json
