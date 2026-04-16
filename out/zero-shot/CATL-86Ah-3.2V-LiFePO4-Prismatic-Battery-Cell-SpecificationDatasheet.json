@@ -1,0 +1,36 @@
+{
+  "source_file": "CATL-86Ah-3.2V-LiFePO4-Prismatic-Battery-Cell-SpecificationDatasheet.pdf",
+  "manufacturer": "CATL",
+  "model": "FFH3DS",
+  "chemistry": "LiFePO4",
+  "form_factor": "prismatic",
+  "nominal_voltage_v": 3.2,
+  "capacity": {
+    "nominal_mah": 86000.0,
+    "minimum_mah": null,
+    "c_rate_condition": "0.5C",
+    "test_temperature_celsius": 25.0,
+    "raw": "86Ah 25±2°C, 0.5C/0.5C discharge, fresh cell"
+  },
+  "operating_temperature": {
+    "min_celsius": -20.0,
+    "max_celsius": 60.0,
+    "raw": "-20~60°C"
+  },
+  "charge_temperature": {
+    "min_celsius": 0.0,
+    "max_celsius": 60.0,
+    "raw": "0~60°C"
+  },
+  "storage_temperature": {
+    "min_celsius": -30.0,
+    "max_celsius": 60.0,
+    "raw": "-30~60°C"
+  },
+  "charge_cutoff_voltage_v": 3.65,
+  "discharge_cutoff_voltage_v": 2.5,
+  "max_continuous_discharge_current_a": 86.0,
+  "internal_resistance_mohm": 0.32,
+  "cycle_life": 3500,
+  "weight_g": 2250.0
+}

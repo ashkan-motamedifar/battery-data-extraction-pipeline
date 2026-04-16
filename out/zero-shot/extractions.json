@@ -1,0 +1,144 @@
+[
+  {
+    "source_file": "lir2450_EEMB.pdf",
+    "manufacturer": "EEMB Co., Ltd.",
+    "model": "LIR2450",
+    "chemistry": "Li-ion",
+    "form_factor": "coin",
+    "nominal_voltage_v": 3.6,
+    "capacity": {
+      "nominal_mah": 120.0,
+      "minimum_mah": 110.0,
+      "c_rate_condition": "0.2C",
+      "test_temperature_celsius": 20.0,
+      "raw": "120\u00b110mAh"
+    },
+    "operating_temperature": {
+      "min_celsius": -20.0,
+      "max_celsius": 60.0,
+      "raw": "\ufe6320\u2103\u201460\u2103"
+    },
+    "charge_temperature": null,
+    "storage_temperature": null,
+    "charge_cutoff_voltage_v": 4.2,
+    "discharge_cutoff_voltage_v": 2.75,
+    "max_continuous_discharge_current_a": null,
+    "internal_resistance_mohm": 400.0,
+    "cycle_life": 300,
+    "weight_g": 5.0
+  },
+  {
+    "source_file": "16340-battery-datasheet.pdf",
+    "manufacturer": "DNK Power",
+    "model": "16340",
+    "chemistry": "LiFePO4",
+    "form_factor": "cylindrical",
+    "nominal_voltage_v": 3.2,
+    "capacity": {
+      "nominal_mah": 500.0,
+      "minimum_mah": 470.0,
+      "c_rate_condition": null,
+      "test_temperature_celsius": null,
+      "raw": "Nominal Capacity 500 mAh / Minimum Capacity 470 mAh"
+    },
+    "operating_temperature": null,
+    "charge_temperature": null,
+    "storage_temperature": null,
+    "charge_cutoff_voltage_v": 3.65,
+    "discharge_cutoff_voltage_v": 2.0,
+    "max_continuous_discharge_current_a": 1.0,
+    "internal_resistance_mohm": 100.0,
+    "cycle_life": null,
+    "weight_g": 17.0
+  },
+  {
+    "source_file": "3.7V9059156.pdf",
+    "manufacturer": "AA Portable Power Corp",
+    "model": "PL-9059156",
+    "chemistry": "Li-polymer",
+    "form_factor": "pouch",
+    "nominal_voltage_v": 3.7,
+    "capacity": {
+      "nominal_mah": 10000.0,
+      "minimum_mah": null,
+      "c_rate_condition": "0.2C5A",
+      "test_temperature_celsius": null,
+      "raw": "Nominal Capacity 11500 mAh 0.2C5A discharge; Typial Capacity 10000 mAh 0.2C5A discharge"
+    },
+    "operating_temperature": {
+      "min_celsius": -20.0,
+      "max_celsius": 60.0,
+      "raw": "Working temperature\uff1a-20\uff5e60\u2103"
+    },
+    "charge_temperature": {
+      "min_celsius": 0.0,
+      "max_celsius": 40.0,
+      "raw": "Working temperature\uff1a0\uff5e40\u2103"
+    },
+    "storage_temperature": {
+      "min_celsius": -20.0,
+      "max_celsius": 45.0,
+      "raw": "-20\uff5e45\u2103 (\u22641month)"
+    },
+    "charge_cutoff_voltage_v": 4.2,
+    "discharge_cutoff_voltage_v": 2.75,
+    "max_continuous_discharge_current_a": 23.0,
+    "internal_resistance_mohm": 15.0,
+    "cycle_life": 300,
+    "weight_g": 196.0
+  },
+  {
+    "source_file": "CATL-86Ah-3.2V-LiFePO4-Prismatic-Battery-Cell-SpecificationDatasheet.pdf",
+    "manufacturer": "CATL",
+    "model": "FFH3DS",
+    "chemistry": "LiFePO4",
+    "form_factor": "prismatic",
+    "nominal_voltage_v": 3.2,
+    "capacity": {
+      "nominal_mah": 86000.0,
+      "minimum_mah": null,
+      "c_rate_condition": "0.5C",
+      "test_temperature_celsius": 25.0,
+      "raw": "86Ah 25\u00b12\u00b0C, 0.5C/0.5C discharge, fresh cell"
+    },
+    "operating_temperature": {
+      "min_celsius": -20.0,
+      "max_celsius": 60.0,
+      "raw": "-20~60\u00b0C"
+    },
+    "charge_temperature": {
+      "min_celsius": 0.0,
+      "max_celsius": 60.0,
+      "raw": "0~60\u00b0C"
+    },
+    "storage_temperature": {
+      "min_celsius": -30.0,
+      "max_celsius": 60.0,
+      "raw": "-30~60\u00b0C"
+    },
+    "charge_cutoff_voltage_v": 3.65,
+    "discharge_cutoff_voltage_v": 2.5,
+    "max_continuous_discharge_current_a": 86.0,
+    "internal_resistance_mohm": 0.32,
+    "cycle_life": 3500,
+    "weight_g": 2250.0
+  },
+  {
+    "source_file": "project.pdf",
+    "manufacturer": null,
+    "model": null,
+    "chemistry": null,
+    "form_factor": null,
+    "nominal_voltage_v": null,
+    "capacity": null,
+    "operating_temperature": null,
+    "charge_temperature": null,
+    "storage_temperature": null,
+    "charge_cutoff_voltage_v": null,
+    "discharge_cutoff_voltage_v": null,
+    "max_continuous_discharge_current_a": null,
+    "internal_resistance_mohm": null,
+    "cycle_life": null,
+    "weight_g": null
+  }
+]

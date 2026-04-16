@@ -1,0 +1,28 @@
+{
+  "source_file": "lir2450_EEMB.pdf",
+  "manufacturer": "EEMB Co., Ltd.",
+  "model": "LIR2450",
+  "chemistry": "Li-ion",
+  "form_factor": "coin",
+  "nominal_voltage_v": 3.6,
+  "capacity": {
+    "nominal_mah": 120.0,
+    "minimum_mah": null,
+    "c_rate_condition": "0.2C",
+    "test_temperature_celsius": 20.0,
+    "raw": "Nominal Capacity: 120±10mAh"
+  },
+  "operating_temperature": {
+    "min_celsius": -20.0,
+    "max_celsius": 60.0,
+    "raw": "﹣20℃—60℃"
+  },
+  "charge_temperature": null,
+  "storage_temperature": null,
+  "charge_cutoff_voltage_v": 4.2,
+  "discharge_cutoff_voltage_v": 2.75,
+  "max_continuous_discharge_current_a": null,
+  "internal_resistance_mohm": 400.0,
+  "cycle_life": 300,
+  "weight_g": 5.0
+}

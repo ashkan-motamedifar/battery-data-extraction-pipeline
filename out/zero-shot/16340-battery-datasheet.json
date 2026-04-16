@@ -1,0 +1,24 @@
+{
+  "source_file": "16340-battery-datasheet.pdf",
+  "manufacturer": "DNK Power",
+  "model": "16340",
+  "chemistry": "LiFePO4",
+  "form_factor": "cylindrical",
+  "nominal_voltage_v": 3.2,
+  "capacity": {
+    "nominal_mah": 500.0,
+    "minimum_mah": 470.0,
+    "c_rate_condition": null,
+    "test_temperature_celsius": null,
+    "raw": "Nominal Capacity 500 mAh / Minimum Capacity 470 mAh"
+  },
+  "operating_temperature": null,
+  "charge_temperature": null,
+  "storage_temperature": null,
+  "charge_cutoff_voltage_v": 3.65,
+  "discharge_cutoff_voltage_v": 2.0,
+  "max_continuous_discharge_current_a": 1.0,
+  "internal_resistance_mohm": 100.0,
+  "cycle_life": null,
+  "weight_g": 17.0
+}

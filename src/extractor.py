@@ -11,9 +11,11 @@ Writes one JSON per PDF plus a combined `extractions.json`.
 
 Run from the project root:
 
-    .venv/bin/python -m src.extractor \\
-        --input-dir . \\
-        --output-dir out
+    # zero-shot (default)
+    .venv/bin/python -m src.extractor --output-dir out/zero-shot
+
+    # few-shot
+    .venv/bin/python -m src.extractor --prompting few-shot --output-dir out/few-shot
 
 Uses the official Anthropic Python SDK, defaults to `claude-opus-4-6`
 with adaptive thinking, and retries once on JSON / validation errors
@@ -35,14 +37,21 @@ from dotenv import load_dotenv
 from pydantic import ValidationError
 
 from src.schema import BatterySpec
+from src.prompts import ZERO_SHOT_PROMPT, FEW_SHOT_PROMPT
 
-# Load ANTHROPIC_API_KEY (and any other env vars) from a local .env file
-# at the project root, so the user doesn't have to `source` anything.
-# `.env` is gitignored — never commit it.
-load_dotenv()
+# Load ANTHROPIC_API_KEY from a .env file.  We look for it in the project
+# root (two levels up from this file: src/../.env) so it works regardless
+# of which directory the user runs the script from.
+_PROJECT_ROOT = Path(__file__).resolve().parent.parent
+load_dotenv(dotenv_path=_PROJECT_ROOT / ".env", override=True)
 
 
 DEFAULT_MODEL = "claude-opus-4-6"
+
+PROMPTING_STRATEGIES = {
+    "zero-shot": ZERO_SHOT_PROMPT,
+    "few-shot": FEW_SHOT_PROMPT,
+}
 
 # Datasheets present in the reference corpus. `project.pdf` is included
 # deliberately as a negative control — it's the assignment brief, not a
@@ -57,51 +66,8 @@ DEFAULT_PDFS = [
 ]
 
 
-SYSTEM_PROMPT = """You are a meticulous battery-datasheet information \
-extractor. You are given a single PDF and must return a structured \
-`BatterySpec` record describing it.
-
-Rules:
-
-1. EXTRACT ONLY EXPLICIT VALUES. If a field is not clearly stated in the \
-PDF, leave it null. Never guess, interpolate, or compute values the \
-datasheet does not give.
-
-2. NORMALIZE UNITS to the canonical unit encoded in each field name:
-   - `nominal_voltage_v` → volts
-   - `capacity.nominal_mah` / `capacity.minimum_mah` → milliamp-hours \
-(convert Ah → mAh by ×1000)
-   - all `*_celsius` fields → degrees Celsius
-   - `max_continuous_discharge_current_a` → amperes (convert mA → A by \
-÷1000; if given as a C-rate multiplied by the rated capacity, compute \
-the absolute amps and put the original C-rate in `capacity.c_rate_condition`)
-   - `internal_resistance_mohm` → milliohms (convert Ω → mΩ by ×1000)
-   - `weight_g` → grams
-
-3. PRESERVE RAW STRINGS. On `TemperatureRange` and `Capacity`, fill the \
-`raw` field with the exact substring you based the values on (e.g. \
-"-20~60°C", "500 mAh (min. 470 mAh) at 0.2C, 25°C"). This is used later \
-to detect hallucinations.
-
-4. OPERATING TEMPERATURE is the discharge / general-use temperature \
-range. If the datasheet lists separate charge and discharge temperature \
-ranges, put the discharge range in `operating_temperature` and the \
-charge range in `charge_temperature`. If only one operating range is \
-given, put it in `operating_temperature` and leave `charge_temperature` \
-null.
-
-5. NON-DATASHEET PDFs. If the document is not actually a battery \
-datasheet (e.g. a project brief, a review article, a marketing flyer), \
-fill only `source_file` and leave every technical field null. Do not \
-invent specs to fill the schema.
-
-6. PREFER null OVER HALLUCINATION. Missing information is always \
-acceptable; fabricated information is not.
-
-OUTPUT FORMAT. Respond with a SINGLE JSON object matching the BatterySpec \
-schema provided in the user message. No prose, no markdown fences, no \
-commentary before or after — just the raw JSON object, starting with `{` \
-and ending with `}`."""
+# Legacy alias — kept so any import of SYSTEM_PROMPT still works.
+SYSTEM_PROMPT = ZERO_SHOT_PROMPT
 
 
 # Pydantic emits a schema with $defs + $ref and a lot of `anyOf:
@@ -154,13 +120,14 @@ def _call_claude(
     pdf_path: Path,
     model: str,
     user_text: str,
+    system_prompt: str = ZERO_SHOT_PROMPT,
 ) -> str:
-    """One round-trip to Claude. Returns the text of the first text block."""
+    """One round-trip to Claude. Returns the text of the last text block."""
     message = client.messages.create(
         model=model,
         max_tokens=4096,
         thinking={"type": "adaptive"},
-        system=SYSTEM_PROMPT,
+        system=system_prompt,
         messages=[
             {
                 "role": "user",
@@ -186,6 +153,7 @@ def extract_one(
     client: Anthropic,
     pdf_path: Path,
     model: str,
+    system_prompt: str = ZERO_SHOT_PROMPT,
 ) -> BatterySpec:
     """Run structured extraction on a single PDF and return the BatterySpec.
 
@@ -213,7 +181,7 @@ def extract_one(
                 f"Return a corrected JSON object that fixes this issue."
             )
 
-        raw = _call_claude(client, pdf_path, model, user_text)
+        raw = _call_claude(client, pdf_path, model, user_text, system_prompt)
         try:
             json_text = _extract_json_object(raw)
             spec = BatterySpec.model_validate_json(json_text)
@@ -235,7 +203,9 @@ def run(
     output_dir: Path,
     pdfs: Iterable[str],
     model: str,
+    prompting: str = "zero-shot",
 ) -> int:
+    system_prompt = PROMPTING_STRATEGIES.get(prompting, ZERO_SHOT_PROMPT)
     client = Anthropic()
     output_dir.mkdir(parents=True, exist_ok=True)
 
@@ -249,10 +219,10 @@ def run(
             print(f"[skip] {name}: not found", file=sys.stderr)
             continue
 
-        print(f"[extract] {name} ... ", end="", flush=True)
+        print(f"[{prompting}] {name} ... ", end="", flush=True)
         t0 = time.time()
         try:
-            spec = extract_one(client, pdf_path, model)
+            spec = extract_one(client, pdf_path, model, system_prompt)
         except (APIError, ValidationError, RuntimeError) as exc:
             failures.append((name, f"{type(exc).__name__}: {exc}"))
             print(f"FAILED ({type(exc).__name__})", file=sys.stderr)
@@ -301,8 +271,14 @@ def main() -> int:
         default=DEFAULT_PDFS,
         help="PDF filenames (relative to --input-dir) to process.",
     )
+    parser.add_argument(
+        "--prompting",
+        choices=list(PROMPTING_STRATEGIES.keys()),
+        default="zero-shot",
+        help="Prompting strategy to use (default: zero-shot).",
+    )
     args = parser.parse_args()
-    return run(args.input_dir, args.output_dir, args.pdfs, args.model)
+    return run(args.input_dir, args.output_dir, args.pdfs, args.model, args.prompting)
 
 
 if __name__ == "__main__":
