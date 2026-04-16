@@ -1,0 +1,222 @@
+@prefix :       <http://battery-kg.org/ontology#> .
+@prefix bat:    <http://battery-kg.org/ontology#> .
+@prefix owl:    <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos:   <http://www.w3.org/2004/02/skos/core#> .
+
+# =============================================================================
+#  Battery Ontology -- Level 2 of the LLM-Based Battery Datasheet project
+#  -----------------------------------------------------------------------
+#  Models battery cells / packs, their technical specifications, and the
+#  manufacturers that produce them. Every numeric specification is
+#  represented as a QuantityValue node carrying value + unit + optional
+#  raw-source text, so that Level 3 can validate extracted values against
+#  their provenance.
+# =============================================================================
+
+<http://battery-kg.org/ontology>
+    a owl:Ontology ;
+    rdfs:label    "Battery Datasheet Ontology"@en ;
+    rdfs:comment  "Ontology for structured battery specifications extracted from datasheets."@en ;
+    owl:versionInfo "1.0" .
+
+# =============================================================================
+#  Classes
+# =============================================================================
+
+bat:Battery a owl:Class ;
+    rdfs:label   "Battery"@en ;
+    rdfs:comment "A battery cell or pack, as described by a single datasheet."@en .
+
+bat:Manufacturer a owl:Class ;
+    rdfs:label   "Manufacturer"@en ;
+    rdfs:comment "A company that produces batteries."@en .
+
+bat:QuantityValue a owl:Class ;
+    rdfs:label   "QuantityValue"@en ;
+    rdfs:comment "A numeric value with its unit and optional provenance text."@en .
+
+bat:TemperatureRange a owl:Class ;
+    rdfs:label   "TemperatureRange"@en ;
+    rdfs:comment "A temperature interval with min and max Celsius values."@en .
+
+bat:Unit a owl:Class ;
+    rdfs:label   "Unit"@en ;
+    rdfs:comment "A unit of measurement (Volt, MilliampHour, Celsius, MilliOhm, ...)."@en .
+
+bat:Chemistry a owl:Class ;
+    rdfs:label   "Chemistry"@en ;
+    rdfs:comment "Controlled-vocabulary class for battery chemistries."@en .
+
+bat:FormFactor a owl:Class ;
+    rdfs:label   "FormFactor"@en ;
+    rdfs:comment "Controlled-vocabulary class for physical form factors."@en .
+
+# =============================================================================
+#  Object Properties
+# =============================================================================
+
+bat:producedBy a owl:ObjectProperty ;
+    rdfs:label   "producedBy"@en ;
+    rdfs:domain  bat:Battery ;
+    rdfs:range   bat:Manufacturer .
+
+bat:hasChemistry a owl:ObjectProperty ;
+    rdfs:label   "hasChemistry"@en ;
+    rdfs:domain  bat:Battery ;
+    rdfs:range   bat:Chemistry .
+
+bat:hasFormFactor a owl:ObjectProperty ;
+    rdfs:label   "hasFormFactor"@en ;
+    rdfs:domain  bat:Battery ;
+    rdfs:range   bat:FormFactor .
+
+bat:hasNominalVoltage a owl:ObjectProperty ;
+    rdfs:label   "hasNominalVoltage"@en ;
+    rdfs:domain  bat:Battery ;
+    rdfs:range   bat:QuantityValue .
+
+bat:hasCapacity a owl:ObjectProperty ;
+    rdfs:label   "hasCapacity"@en ;
+    rdfs:domain  bat:Battery ;
+    rdfs:range   bat:QuantityValue .
+
+bat:hasChargeCutoffVoltage a owl:ObjectProperty ;
+    rdfs:label   "hasChargeCutoffVoltage"@en ;
+    rdfs:domain  bat:Battery ;
+    rdfs:range   bat:QuantityValue .
+
+bat:hasDischargeCutoffVoltage a owl:ObjectProperty ;
+    rdfs:label   "hasDischargeCutoffVoltage"@en ;
+    rdfs:domain  bat:Battery ;
+    rdfs:range   bat:QuantityValue .
+
+bat:hasMaxContinuousDischargeCurrent a owl:ObjectProperty ;
+    rdfs:label   "hasMaxContinuousDischargeCurrent"@en ;
+    rdfs:domain  bat:Battery ;
+    rdfs:range   bat:QuantityValue .
+
+bat:hasInternalResistance a owl:ObjectProperty ;
+    rdfs:label   "hasInternalResistance"@en ;
+    rdfs:domain  bat:Battery ;
+    rdfs:range   bat:QuantityValue .
+
+bat:hasWeight a owl:ObjectProperty ;
+    rdfs:label   "hasWeight"@en ;
+    rdfs:domain  bat:Battery ;
+    rdfs:range   bat:QuantityValue .
+
+bat:hasOperatingTemperatureRange a owl:ObjectProperty ;
+    rdfs:label   "hasOperatingTemperatureRange"@en ;
+    rdfs:domain  bat:Battery ;
+    rdfs:range   bat:TemperatureRange .
+
+bat:hasChargeTemperatureRange a owl:ObjectProperty ;
+    rdfs:label   "hasChargeTemperatureRange"@en ;
+    rdfs:domain  bat:Battery ;
+    rdfs:range   bat:TemperatureRange .
+
+bat:hasStorageTemperatureRange a owl:ObjectProperty ;
+    rdfs:label   "hasStorageTemperatureRange"@en ;
+    rdfs:domain  bat:Battery ;
+    rdfs:range   bat:TemperatureRange .
+
+bat:hasUnit a owl:ObjectProperty ;
+    rdfs:label   "hasUnit"@en ;
+    rdfs:domain  bat:QuantityValue ;
+    rdfs:range   bat:Unit .
+
+# =============================================================================
+#  Data Properties
+# =============================================================================
+
+bat:modelName a owl:DatatypeProperty ;
+    rdfs:label "modelName"@en ;
+    rdfs:domain bat:Battery ;
+    rdfs:range xsd:string .
+
+bat:sourceFile a owl:DatatypeProperty ;
+    rdfs:label "sourceFile"@en ;
+    rdfs:domain bat:Battery ;
+    rdfs:range xsd:string .
+
+bat:manufacturerName a owl:DatatypeProperty ;
+    rdfs:label "manufacturerName"@en ;
+    rdfs:domain bat:Manufacturer ;
+    rdfs:range xsd:string .
+
+bat:numericValue a owl:DatatypeProperty ;
+    rdfs:label "numericValue"@en ;
+    rdfs:domain bat:QuantityValue ;
+    rdfs:range xsd:decimal .
+
+bat:minimumValue a owl:DatatypeProperty ;
+    rdfs:label "minimumValue"@en ;
+    rdfs:comment "Optional minimum guaranteed value (e.g. minimum capacity)."@en ;
+    rdfs:domain bat:QuantityValue ;
+    rdfs:range xsd:decimal .
+
+bat:conditionCRate a owl:DatatypeProperty ;
+    rdfs:label "conditionCRate"@en ;
+    rdfs:domain bat:QuantityValue ;
+    rdfs:range xsd:string .
+
+bat:conditionTemperatureCelsius a owl:DatatypeProperty ;
+    rdfs:label "conditionTemperatureCelsius"@en ;
+    rdfs:domain bat:QuantityValue ;
+    rdfs:range xsd:decimal .
+
+bat:rawText a owl:DatatypeProperty ;
+    rdfs:label "rawText"@en ;
+    rdfs:comment "Exact source phrase from the datasheet (provenance for Level 3)."@en ;
+    rdfs:range xsd:string .
+
+bat:minCelsius a owl:DatatypeProperty ;
+    rdfs:label "minCelsius"@en ;
+    rdfs:domain bat:TemperatureRange ;
+    rdfs:range xsd:decimal .
+
+bat:maxCelsius a owl:DatatypeProperty ;
+    rdfs:label "maxCelsius"@en ;
+    rdfs:domain bat:TemperatureRange ;
+    rdfs:range xsd:decimal .
+
+bat:cycleLife a owl:DatatypeProperty ;
+    rdfs:label "cycleLife"@en ;
+    rdfs:comment "Number of cycles to end-of-life."@en ;
+    rdfs:domain bat:Battery ;
+    rdfs:range xsd:integer .
+
+# =============================================================================
+#  Controlled vocabulary -- Chemistry instances
+# =============================================================================
+
+bat:LiIon      a bat:Chemistry ; rdfs:label "Li-ion"@en ;     skos:altLabel "Li-Ion", "Lithium-ion" .
+bat:LiPolymer  a bat:Chemistry ; rdfs:label "Li-polymer"@en ; skos:altLabel "Li-Po", "Lithium-polymer" .
+bat:LiFePO4    a bat:Chemistry ; rdfs:label "LiFePO4"@en ;    skos:altLabel "LFP", "Lithium Iron Phosphate" .
+bat:NiMH       a bat:Chemistry ; rdfs:label "NiMH"@en ;       skos:altLabel "Nickel-Metal Hydride" .
+bat:NiCd       a bat:Chemistry ; rdfs:label "NiCd"@en ;       skos:altLabel "Nickel-Cadmium" .
+bat:OtherChemistry a bat:Chemistry ; rdfs:label "Other"@en .
+
+# =============================================================================
+#  Controlled vocabulary -- FormFactor instances
+# =============================================================================
+
+bat:Cylindrical    a bat:FormFactor ; rdfs:label "Cylindrical"@en .
+bat:Prismatic      a bat:FormFactor ; rdfs:label "Prismatic"@en .
+bat:Pouch          a bat:FormFactor ; rdfs:label "Pouch"@en .
+bat:Coin           a bat:FormFactor ; rdfs:label "Coin"@en .
+bat:OtherFormFactor a bat:FormFactor ; rdfs:label "Other"@en .
+
+# =============================================================================
+#  Controlled vocabulary -- Unit instances
+# =============================================================================
+
+bat:Volt          a bat:Unit ; rdfs:label "V"@en ;   skos:altLabel "Volt" .
+bat:MilliampHour  a bat:Unit ; rdfs:label "mAh"@en ; skos:altLabel "milliamp-hour" .
+bat:Celsius       a bat:Unit ; rdfs:label "°C"@en ;  skos:altLabel "degree Celsius" .
+bat:MilliOhm      a bat:Unit ; rdfs:label "mΩ"@en ;  skos:altLabel "milliohm" .
+bat:Ampere        a bat:Unit ; rdfs:label "A"@en ;   skos:altLabel "Ampere" .
+bat:Gram          a bat:Unit ; rdfs:label "g"@en ;   skos:altLabel "gram" .

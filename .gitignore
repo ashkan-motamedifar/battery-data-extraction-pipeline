@@ -15,3 +15,12 @@ venv/
 
 # Claude Code local settings (user-specific, should not be shared)
 .claude/settings.local.json
+
+# LaTeX build artefacts (keep only .tex and .pdf)
+*.aux
+*.log
+*.out
+*.toc
+*.fls
+*.fdb_latexmk
+*.synctex.gz
