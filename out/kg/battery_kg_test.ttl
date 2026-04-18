@@ -1,0 +1,479 @@
+@prefix bat: <http://battery-kg.org/ontology#> .
+@prefix battery: <http://battery-kg.org/resource/battery/> .
+@prefix mfr: <http://battery-kg.org/resource/manufacturer/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qv: <http://battery-kg.org/resource/qv/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix trange: <http://battery-kg.org/resource/tempRange/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://battery-kg.org/ontology> a owl:Ontology ;
+    rdfs:label "Battery Datasheet Ontology"@en ;
+    rdfs:comment "Ontology for structured battery specifications extracted from datasheets."@en ;
+    owl:versionInfo "1.0" .
+
+bat:Celsius a bat:Unit ;
+    rdfs:label "°C"@en ;
+    skos:altLabel "degree Celsius" .
+
+bat:NiCd a bat:Chemistry ;
+    rdfs:label "NiCd"@en ;
+    skos:altLabel "Nickel-Cadmium" .
+
+bat:NiMH a bat:Chemistry ;
+    rdfs:label "NiMH"@en ;
+    skos:altLabel "Nickel-Metal Hydride" .
+
+bat:OtherChemistry a bat:Chemistry ;
+    rdfs:label "Other"@en .
+
+bat:OtherFormFactor a bat:FormFactor ;
+    rdfs:label "Other"@en .
+
+bat:conditionCRate a owl:DatatypeProperty ;
+    rdfs:label "conditionCRate"@en ;
+    rdfs:domain bat:QuantityValue ;
+    rdfs:range xsd:string .
+
+bat:conditionTemperatureCelsius a owl:DatatypeProperty ;
+    rdfs:label "conditionTemperatureCelsius"@en ;
+    rdfs:domain bat:QuantityValue ;
+    rdfs:range xsd:decimal .
+
+bat:cycleLife a owl:DatatypeProperty ;
+    rdfs:label "cycleLife"@en ;
+    rdfs:comment "Number of cycles to end-of-life."@en ;
+    rdfs:domain bat:Battery ;
+    rdfs:range xsd:integer .
+
+bat:hasCapacity a owl:ObjectProperty ;
+    rdfs:label "hasCapacity"@en ;
+    rdfs:domain bat:Battery ;
+    rdfs:range bat:QuantityValue .
+
+bat:hasChargeCutoffVoltage a owl:ObjectProperty ;
+    rdfs:label "hasChargeCutoffVoltage"@en ;
+    rdfs:domain bat:Battery ;
+    rdfs:range bat:QuantityValue .
+
+bat:hasChargeTemperatureRange a owl:ObjectProperty ;
+    rdfs:label "hasChargeTemperatureRange"@en ;
+    rdfs:domain bat:Battery ;
+    rdfs:range bat:TemperatureRange .
+
+bat:hasChemistry a owl:ObjectProperty ;
+    rdfs:label "hasChemistry"@en ;
+    rdfs:domain bat:Battery ;
+    rdfs:range bat:Chemistry .
+
+bat:hasDischargeCutoffVoltage a owl:ObjectProperty ;
+    rdfs:label "hasDischargeCutoffVoltage"@en ;
+    rdfs:domain bat:Battery ;
+    rdfs:range bat:QuantityValue .
+
+bat:hasFormFactor a owl:ObjectProperty ;
+    rdfs:label "hasFormFactor"@en ;
+    rdfs:domain bat:Battery ;
+    rdfs:range bat:FormFactor .
+
+bat:hasInternalResistance a owl:ObjectProperty ;
+    rdfs:label "hasInternalResistance"@en ;
+    rdfs:domain bat:Battery ;
+    rdfs:range bat:QuantityValue .
+
+bat:hasMaxContinuousDischargeCurrent a owl:ObjectProperty ;
+    rdfs:label "hasMaxContinuousDischargeCurrent"@en ;
+    rdfs:domain bat:Battery ;
+    rdfs:range bat:QuantityValue .
+
+bat:hasNominalVoltage a owl:ObjectProperty ;
+    rdfs:label "hasNominalVoltage"@en ;
+    rdfs:domain bat:Battery ;
+    rdfs:range bat:QuantityValue .
+
+bat:hasOperatingTemperatureRange a owl:ObjectProperty ;
+    rdfs:label "hasOperatingTemperatureRange"@en ;
+    rdfs:domain bat:Battery ;
+    rdfs:range bat:TemperatureRange .
+
+bat:hasStorageTemperatureRange a owl:ObjectProperty ;
+    rdfs:label "hasStorageTemperatureRange"@en ;
+    rdfs:domain bat:Battery ;
+    rdfs:range bat:TemperatureRange .
+
+bat:hasUnit a owl:ObjectProperty ;
+    rdfs:label "hasUnit"@en ;
+    rdfs:domain bat:QuantityValue ;
+    rdfs:range bat:Unit .
+
+bat:hasWeight a owl:ObjectProperty ;
+    rdfs:label "hasWeight"@en ;
+    rdfs:domain bat:Battery ;
+    rdfs:range bat:QuantityValue .
+
+bat:manufacturerName a owl:DatatypeProperty ;
+    rdfs:label "manufacturerName"@en ;
+    rdfs:domain bat:Manufacturer ;
+    rdfs:range xsd:string .
+
+bat:maxCelsius a owl:DatatypeProperty ;
+    rdfs:label "maxCelsius"@en ;
+    rdfs:domain bat:TemperatureRange ;
+    rdfs:range xsd:decimal .
+
+bat:minCelsius a owl:DatatypeProperty ;
+    rdfs:label "minCelsius"@en ;
+    rdfs:domain bat:TemperatureRange ;
+    rdfs:range xsd:decimal .
+
+bat:minimumValue a owl:DatatypeProperty ;
+    rdfs:label "minimumValue"@en ;
+    rdfs:comment "Optional minimum guaranteed value (e.g. minimum capacity)."@en ;
+    rdfs:domain bat:QuantityValue ;
+    rdfs:range xsd:decimal .
+
+bat:modelName a owl:DatatypeProperty ;
+    rdfs:label "modelName"@en ;
+    rdfs:domain bat:Battery ;
+    rdfs:range xsd:string .
+
+bat:numericValue a owl:DatatypeProperty ;
+    rdfs:label "numericValue"@en ;
+    rdfs:domain bat:QuantityValue ;
+    rdfs:range xsd:decimal .
+
+bat:producedBy a owl:ObjectProperty ;
+    rdfs:label "producedBy"@en ;
+    rdfs:domain bat:Battery ;
+    rdfs:range bat:Manufacturer .
+
+bat:rawText a owl:DatatypeProperty ;
+    rdfs:label "rawText"@en ;
+    rdfs:comment "Exact source phrase from the datasheet (provenance for Level 3)."@en ;
+    rdfs:range xsd:string .
+
+bat:sourceFile a owl:DatatypeProperty ;
+    rdfs:label "sourceFile"@en ;
+    rdfs:domain bat:Battery ;
+    rdfs:range xsd:string .
+
+battery:16340 a bat:Battery ;
+    bat:hasCapacity qv:16340__capacity ;
+    bat:hasChargeCutoffVoltage qv:16340__chargeCutoff ;
+    bat:hasChemistry bat:LiFePO4 ;
+    bat:hasDischargeCutoffVoltage qv:16340__dischargeCutoff ;
+    bat:hasFormFactor bat:Cylindrical ;
+    bat:hasInternalResistance qv:16340__internalResistance ;
+    bat:hasMaxContinuousDischargeCurrent qv:16340__maxDischargeCurrent ;
+    bat:hasNominalVoltage qv:16340__nominalVoltage ;
+    bat:hasWeight qv:16340__weight ;
+    bat:modelName "16340"^^xsd:string ;
+    bat:producedBy mfr:DNK_Power ;
+    bat:sourceFile "16340-battery-datasheet.pdf"^^xsd:string .
+
+battery:FFH3DS a bat:Battery ;
+    bat:cycleLife 3500 ;
+    bat:hasCapacity qv:FFH3DS__capacity ;
+    bat:hasChargeCutoffVoltage qv:FFH3DS__chargeCutoff ;
+    bat:hasChargeTemperatureRange trange:FFH3DS__charge ;
+    bat:hasChemistry bat:LiFePO4 ;
+    bat:hasDischargeCutoffVoltage qv:FFH3DS__dischargeCutoff ;
+    bat:hasFormFactor bat:Prismatic ;
+    bat:hasInternalResistance qv:FFH3DS__internalResistance ;
+    bat:hasMaxContinuousDischargeCurrent qv:FFH3DS__maxDischargeCurrent ;
+    bat:hasNominalVoltage qv:FFH3DS__nominalVoltage ;
+    bat:hasOperatingTemperatureRange trange:FFH3DS__operating ;
+    bat:hasStorageTemperatureRange trange:FFH3DS__storage ;
+    bat:hasWeight qv:FFH3DS__weight ;
+    bat:modelName "FFH3DS"^^xsd:string ;
+    bat:producedBy mfr:CATL ;
+    bat:sourceFile "CATL-86Ah-3.2V-LiFePO4-Prismatic-Battery-Cell-SpecificationDatasheet.pdf"^^xsd:string .
+
+battery:LIR2450 a bat:Battery ;
+    bat:cycleLife 300 ;
+    bat:hasCapacity qv:LIR2450__capacity ;
+    bat:hasChargeCutoffVoltage qv:LIR2450__chargeCutoff ;
+    bat:hasChemistry bat:LiIon ;
+    bat:hasDischargeCutoffVoltage qv:LIR2450__dischargeCutoff ;
+    bat:hasFormFactor bat:Coin ;
+    bat:hasInternalResistance qv:LIR2450__internalResistance ;
+    bat:hasNominalVoltage qv:LIR2450__nominalVoltage ;
+    bat:hasOperatingTemperatureRange trange:LIR2450__operating ;
+    bat:hasWeight qv:LIR2450__weight ;
+    bat:modelName "LIR2450"^^xsd:string ;
+    bat:producedBy mfr:EEMB_Co_Ltd ;
+    bat:sourceFile "lir2450_EEMB.pdf"^^xsd:string .
+
+battery:PL_9059156 a bat:Battery ;
+    bat:cycleLife 300 ;
+    bat:hasCapacity qv:PL_9059156__capacity ;
+    bat:hasChargeCutoffVoltage qv:PL_9059156__chargeCutoff ;
+    bat:hasChargeTemperatureRange trange:PL_9059156__charge ;
+    bat:hasChemistry bat:LiPolymer ;
+    bat:hasDischargeCutoffVoltage qv:PL_9059156__dischargeCutoff ;
+    bat:hasFormFactor bat:Pouch ;
+    bat:hasInternalResistance qv:PL_9059156__internalResistance ;
+    bat:hasMaxContinuousDischargeCurrent qv:PL_9059156__maxDischargeCurrent ;
+    bat:hasNominalVoltage qv:PL_9059156__nominalVoltage ;
+    bat:hasOperatingTemperatureRange trange:PL_9059156__operating ;
+    bat:hasStorageTemperatureRange trange:PL_9059156__storage ;
+    bat:hasWeight qv:PL_9059156__weight ;
+    bat:modelName "PL-9059156"^^xsd:string ;
+    bat:producedBy mfr:AA_Portable_Power_Corp ;
+    bat:sourceFile "3.7V9059156.pdf"^^xsd:string .
+
+bat:Coin a bat:FormFactor ;
+    rdfs:label "Coin"@en .
+
+bat:Cylindrical a bat:FormFactor ;
+    rdfs:label "Cylindrical"@en .
+
+bat:LiIon a bat:Chemistry ;
+    rdfs:label "Li-ion"@en ;
+    skos:altLabel "Li-Ion",
+        "Lithium-ion" .
+
+bat:LiPolymer a bat:Chemistry ;
+    rdfs:label "Li-polymer"@en ;
+    skos:altLabel "Li-Po",
+        "Lithium-polymer" .
+
+bat:Pouch a bat:FormFactor ;
+    rdfs:label "Pouch"@en .
+
+bat:Prismatic a bat:FormFactor ;
+    rdfs:label "Prismatic"@en .
+
+mfr:AA_Portable_Power_Corp a bat:Manufacturer ;
+    bat:manufacturerName "AA Portable Power Corp"^^xsd:string .
+
+mfr:CATL a bat:Manufacturer ;
+    bat:manufacturerName "CATL"^^xsd:string .
+
+mfr:DNK_Power a bat:Manufacturer ;
+    bat:manufacturerName "DNK Power"^^xsd:string .
+
+mfr:EEMB_Co_Ltd a bat:Manufacturer ;
+    bat:manufacturerName "EEMB Co., Ltd."^^xsd:string .
+
+qv:16340__capacity a bat:QuantityValue ;
+    bat:hasUnit bat:MilliampHour ;
+    bat:minimumValue 550.0 ;
+    bat:numericValue 500.0 ;
+    bat:rawText "Nominal Capacity 500 mAh / Minimum Capacity 470 mAh"^^xsd:string .
+
+# =====================================================================
+# ERREUR 1 INJECTÉE CI-DESSOUS (INCOHÉRENCE)
+# Ancienne valeur : 3.65 / Nouvelle valeur : 2.5
+# Raison : 2.5V (Charge) est inférieur à 3.2V (Nominal), ce qui est absurde.
+# =====================================================================
+qv:16340__chargeCutoff a bat:QuantityValue ;
+    bat:hasUnit bat:Volt ;
+    bat:numericValue 2.5 .
+
+qv:16340__dischargeCutoff a bat:QuantityValue ;
+    bat:hasUnit bat:Volt ;
+    bat:numericValue 2.0 .
+
+qv:16340__internalResistance a bat:QuantityValue ;
+    bat:hasUnit bat:MilliOhm ;
+    bat:numericValue 100.0 .
+
+qv:16340__maxDischargeCurrent a bat:QuantityValue ;
+    bat:hasUnit bat:Ampere ;
+    bat:numericValue 1.0 .
+
+qv:16340__nominalVoltage a bat:QuantityValue ;
+    bat:hasUnit bat:Volt ;
+    bat:numericValue 3.2 .
+
+qv:16340__weight a bat:QuantityValue ;
+    bat:hasUnit bat:Gram ;
+    bat:numericValue -17.0 .
+
+qv:FFH3DS__capacity a bat:QuantityValue ;
+    bat:conditionCRate "0.5C"^^xsd:string ;
+    bat:conditionTemperatureCelsius 25.0 ;
+    bat:hasUnit bat:MilliampHour ;
+    bat:numericValue 86000.0 ;
+    bat:rawText "86Ah 25±2°C, 0.5C/0.5C discharge, fresh cell"^^xsd:string .
+
+qv:FFH3DS__chargeCutoff a bat:QuantityValue ;
+    bat:hasUnit bat:Volt ;
+    bat:numericValue 3.65 .
+
+qv:FFH3DS__dischargeCutoff a bat:QuantityValue ;
+    bat:hasUnit bat:Volt ;
+    bat:numericValue 2.5 .
+
+qv:FFH3DS__internalResistance a bat:QuantityValue ;
+    bat:hasUnit bat:MilliOhm ;
+    bat:numericValue 0.32 .
+
+qv:FFH3DS__maxDischargeCurrent a bat:QuantityValue ;
+    bat:numericValue 86.0 .
+
+qv:FFH3DS__nominalVoltage a bat:QuantityValue ;
+    bat:hasUnit bat:Volt ;
+    bat:numericValue 3.2 .
+
+qv:FFH3DS__weight a bat:QuantityValue ;
+    bat:hasUnit bat:Gram ;
+    bat:numericValue 2250.0 .
+
+qv:LIR2450__capacity a bat:QuantityValue ;
+    bat:conditionCRate "0.2C"^^xsd:string ;
+    bat:conditionTemperatureCelsius 20.0 ;
+    bat:hasUnit bat:MilliampHour ;
+    bat:minimumValue 110.0 ;
+    bat:numericValue 120.0 ;
+    bat:rawText "120±10mAh"^^xsd:string .
+
+qv:LIR2450__chargeCutoff a bat:QuantityValue ;
+    bat:hasUnit bat:Volt ;
+    bat:numericValue 4.2 .
+
+qv:LIR2450__dischargeCutoff a bat:QuantityValue ;
+    bat:hasUnit bat:Volt ;
+    bat:numericValue 2.75 .
+
+qv:LIR2450__internalResistance a bat:QuantityValue ;
+    bat:hasUnit bat:MilliOhm ;
+    bat:numericValue 400.0 .
+
+# =====================================================================
+# ERREUR 2 INJECTÉE CI-DESSOUS (HORS-NORME)
+# Ancienne valeur : 3.6 / Nouvelle valeur : 14.4
+# Raison : Une tension de 14.4V est hors norme pour une cellule Li-Ion.
+# =====================================================================
+qv:LIR2450__nominalVoltage a bat:QuantityValue ;
+    bat:hasUnit bat:Volt ;
+    bat:numericValue 14.4 .
+
+qv:LIR2450__weight a bat:QuantityValue ;
+    bat:hasUnit bat:Gram ;
+    bat:numericValue 250.0 .
+
+# =====================================================================
+# ERREUR 3 INJECTÉE CI-DESSOUS (HALLUCINATION)
+# Ancienne valeur : 10000.0 / Nouvelle valeur : 99999.0
+# Raison : 99999 n'apparaît absolument pas dans le rawText juste en dessous.
+# =====================================================================
+qv:PL_9059156__capacity a bat:QuantityValue ;
+    bat:conditionCRate "0.2C5A"^^xsd:string ;
+    bat:hasUnit bat:MilliampHour ;
+    bat:numericValue 99999.0 ;
+    bat:rawText "Nominal Capacity 11500 mAh 0.2C5A discharge; Typial Capacity 10000 mAh 0.2C5A discharge"^^xsd:string .
+
+qv:PL_9059156__chargeCutoff a bat:QuantityValue ;
+    bat:hasUnit bat:Volt ;
+    bat:numericValue 4.2 .
+
+qv:PL_9059156__dischargeCutoff a bat:QuantityValue ;
+    bat:hasUnit bat:Volt ;
+    bat:numericValue 2.75 .
+
+qv:PL_9059156__internalResistance a bat:QuantityValue ;
+    bat:hasUnit bat:MilliOhm ;
+    bat:numericValue 15.0 .
+
+qv:PL_9059156__maxDischargeCurrent a bat:QuantityValue ;
+    bat:hasUnit bat:Ampere ;
+    bat:numericValue 23.0 .
+
+qv:PL_9059156__nominalVoltage a bat:QuantityValue ;
+    bat:hasUnit bat:Volt ;
+    bat:numericValue 3.7 .
+
+qv:PL_9059156__weight a bat:QuantityValue ;
+    bat:hasUnit bat:Gram ;
+    bat:numericValue 196.0 .
+
+trange:FFH3DS__charge a bat:TemperatureRange ;
+    bat:maxCelsius 60.0 ;
+    bat:minCelsius -30.0 ;
+    bat:rawText "0~60°C"^^xsd:string .
+
+trange:FFH3DS__operating a bat:TemperatureRange ;
+    bat:maxCelsius 60.0 ;
+    bat:minCelsius -20.0 ;
+    bat:rawText "-20~60°C"^^xsd:string .
+
+trange:FFH3DS__storage a bat:TemperatureRange ;
+    bat:maxCelsius 60.0 ;
+    bat:minCelsius -30.0 ;
+    bat:rawText "-30~60°C"^^xsd:string .
+
+trange:LIR2450__operating a bat:TemperatureRange ;
+    bat:maxCelsius 60.0 ;
+    bat:minCelsius -20.0 ;
+    bat:rawText "﹣20℃—60℃"^^xsd:string .
+
+trange:PL_9059156__charge a bat:TemperatureRange ;
+    bat:maxCelsius 40.0 ;
+    bat:minCelsius 0.0 ;
+    bat:rawText "Working temperature：0～40℃"^^xsd:string .
+
+trange:PL_9059156__operating a bat:TemperatureRange ;
+    bat:maxCelsius 60.0 ;
+    bat:minCelsius -20.0 ;
+    bat:rawText "Working temperature：-20～60℃"^^xsd:string .
+
+trange:PL_9059156__storage a bat:TemperatureRange ;
+    bat:maxCelsius 45.0 ;
+    bat:minCelsius -20.0 ;
+    bat:rawText "-20～45℃ (≤1month)"^^xsd:string .
+
+bat:LiFePO4 a bat:Chemistry ;
+    rdfs:label "LiFePO4"@en ;
+    skos:altLabel "LFP",
+        "Lithium Iron Phosphate" .
+
+bat:Ampere a bat:Unit ;
+    rdfs:label "A"@en ;
+    skos:altLabel "Ampere" .
+
+bat:Gram a bat:Unit ;
+    rdfs:label "g"@en ;
+    skos:altLabel "gram" .
+
+bat:MilliOhm a bat:Unit ;
+    rdfs:label "mΩ"@en ;
+    skos:altLabel "milliohm" .
+
+bat:MilliampHour a bat:Unit ;
+    rdfs:label "mAh"@en ;
+    skos:altLabel "milliamp-hour" .
+
+bat:FormFactor a owl:Class ;
+    rdfs:label "FormFactor"@en ;
+    rdfs:comment "Controlled-vocabulary class for physical form factors."@en .
+
+bat:Manufacturer a owl:Class ;
+    rdfs:label "Manufacturer"@en ;
+    rdfs:comment "A company that produces batteries."@en .
+
+bat:Chemistry a owl:Class ;
+    rdfs:label "Chemistry"@en ;
+    rdfs:comment "Controlled-vocabulary class for battery chemistries."@en .
+
+bat:Unit a owl:Class ;
+    rdfs:label "Unit"@en ;
+    rdfs:comment "A unit of measurement (Volt, MilliampHour, Celsius, MilliOhm, ...)."@en .
+
+bat:TemperatureRange a owl:Class ;
+    rdfs:label "TemperatureRange"@en ;
+    rdfs:comment "A temperature interval with min and max Celsius values."@en .
+
+bat:Volt a bat:Unit ;
+    rdfs:label "V"@en ;
+    skos:altLabel "Volt" .
+
+bat:Battery a owl:Class ;
+    rdfs:label "Battery"@en ;
+    rdfs:comment "A battery cell or pack, as described by a single datasheet."@en .
+
+bat:QuantityValue a owl:Class ;
+    rdfs:label "QuantityValue"@en ;
+    rdfs:comment "A numeric value with its unit and optional provenance text."@en .
