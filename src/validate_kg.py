@@ -265,8 +265,12 @@ def check_coin_cell_weight(g):
     print()
 
 if __name__ == "__main__":
-    kg_file = "/home/kian/Bureau/DI/battery-data-extraction-pipeline/out/kg/battery_kg.ttl"
-    graph = load_graph(kg_file)
+    import argparse
+    parser = argparse.ArgumentParser(description="Apply ontology / SPARQL validation rules to a battery KG.")
+    parser.add_argument("--kg", default="out/kg/battery_kg.ttl",
+                        help="Path to the Turtle KG file (default: out/kg/battery_kg.ttl).")
+    args = parser.parse_args()
+    graph = load_graph(args.kg)
     
     if graph:
         check_voltage_inconsistencies(graph)
