@@ -38,7 +38,7 @@
       "nominal_mah": 500.0,
       "minimum_mah": 470.0,
       "c_rate_condition": null,
-      "test_temperature_celsius": null,
+      "test_temperature_celsius": 25.0,
       "raw": null
     },
     "operating_temperature": null,
@@ -62,7 +62,7 @@
       "nominal_mah": 11500.0,
       "minimum_mah": null,
       "c_rate_condition": "0.2C5A",
-      "test_temperature_celsius": null,
+      "test_temperature_celsius": 20.0,
       "raw": null
     },
     "operating_temperature": {

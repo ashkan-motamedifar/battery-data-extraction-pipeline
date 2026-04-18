@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+   xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+>
+  <rdf:Description rdf:about="http://battery-kg.org/ontology">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <rdfs:label xml:lang="en">Battery Datasheet Ontology</rdfs:label>
+    <rdfs:comment xml:lang="en">Ontology for structured battery specifications extracted from datasheets.</rdfs:comment>
+    <owl:versionInfo>1.0</owl:versionInfo>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://battery-kg.org/ontology#Unit">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Unit</rdfs:label>
+    <rdfs:comment xml:lang="en">A unit of measurement (Volt, MilliampHour, Celsius, MilliOhm, ...).</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://battery-kg.org/ontology#MilliampHour">
+    <rdf:type rdf:resource="http://battery-kg.org/ontology#Unit"/>
+    <rdfs:label xml:lang="en">mAh</rdfs:label>
+    <skos:altLabel>milliamp-hour</skos:altLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://battery-kg.org/ontology#cycleLife">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">cycleLife</rdfs:label>
+    <rdfs:comment xml:lang="en">Number of cycles to end-of-life.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://battery-kg.org/ontology#Battery"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://battery-kg.org/ontology#rawText">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">rawText</rdfs:label>
+    <rdfs:comment xml:lang="en">Exact source phrase from the datasheet (provenance for Level 3).</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://battery-kg.org/ontology#hasCapacity">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">hasCapacity</rdfs:label>
+    <rdfs:domain rdf:resource="http://battery-kg.org/ontology#Battery"/>
+    <rdfs:range rdf:resource="http://battery-kg.org/ontology#QuantityValue"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://battery-kg.org/ontology#hasDischargeCutoffVoltage">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">hasDischargeCutoffVoltage</rdfs:label>
+    <rdfs:domain rdf:resource="http://battery-kg.org/ontology#Battery"/>
+    <rdfs:range rdf:resource="http://battery-kg.org/ontology#QuantityValue"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://battery-kg.org/ontology#OtherFormFactor">
+    <rdf:type rdf:resource="http://battery-kg.org/ontology#FormFactor"/>
+    <rdfs:label xml:lang="en">Other</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://battery-kg.org/ontology#hasChemistry">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">hasChemistry</rdfs:label>
+    <rdfs:domain rdf:resource="http://battery-kg.org/ontology#Battery"/>
+    <rdfs:range rdf:resource="http://battery-kg.org/ontology#Chemistry"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://battery-kg.org/ontology#maxCelsius">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">maxCelsius</rdfs:label>
+    <rdfs:domain rdf:resource="http://battery-kg.org/ontology#TemperatureRange"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://battery-kg.org/ontology#hasUnit">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">hasUnit</rdfs:label>
+    <rdfs:domain rdf:resource="http://battery-kg.org/ontology#QuantityValue"/>
+    <rdfs:range rdf:resource="http://battery-kg.org/ontology#Unit"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://battery-kg.org/ontology#producedBy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">producedBy</rdfs:label>
+    <rdfs:domain rdf:resource="http://battery-kg.org/ontology#Battery"/>
+    <rdfs:range rdf:resource="http://battery-kg.org/ontology#Manufacturer"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://battery-kg.org/ontology#modelName">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">modelName</rdfs:label>
+    <rdfs:domain rdf:resource="http://battery-kg.org/ontology#Battery"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://battery-kg.org/ontology#QuantityValue">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">QuantityValue</rdfs:label>
+    <rdfs:comment xml:lang="en">A numeric value with its unit and optional provenance text.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://battery-kg.org/ontology#NiCd">
+    <rdf:type rdf:resource="http://battery-kg.org/ontology#Chemistry"/>
+    <rdfs:label xml:lang="en">NiCd</rdfs:label>
+    <skos:altLabel>Nickel-Cadmium</skos:altLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://battery-kg.org/ontology#minCelsius">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">minCelsius</rdfs:label>
+    <rdfs:domain rdf:resource="http://battery-kg.org/ontology#TemperatureRange"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://battery-kg.org/ontology#conditionCRate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">conditionCRate</rdfs:label>
+    <rdfs:domain rdf:resource="http://battery-kg.org/ontology#QuantityValue"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://battery-kg.org/ontology#hasOperatingTemperatureRange">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">hasOperatingTemperatureRange</rdfs:label>
+    <rdfs:domain rdf:resource="http://battery-kg.org/ontology#Battery"/>
+    <rdfs:range rdf:resource="http://battery-kg.org/ontology#TemperatureRange"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://battery-kg.org/ontology#LiFePO4">
+    <rdf:type rdf:resource="http://battery-kg.org/ontology#Chemistry"/>
+    <rdfs:label xml:lang="en">LiFePO4</rdfs:label>
+    <skos:altLabel>LFP</skos:altLabel>
+    <skos:altLabel>Lithium Iron Phosphate</skos:altLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://battery-kg.org/ontology#Pouch">
+    <rdf:type rdf:resource="http://battery-kg.org/ontology#FormFactor"/>
+    <rdfs:label xml:lang="en">Pouch</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://battery-kg.org/ontology#MilliOhm">
+    <rdf:type rdf:resource="http://battery-kg.org/ontology#Unit"/>
+    <rdfs:label xml:lang="en">mΩ</rdfs:label>
+    <skos:altLabel>milliohm</skos:altLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://battery-kg.org/ontology#Manufacturer">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Manufacturer</rdfs:label>
+    <rdfs:comment xml:lang="en">A company that produces batteries.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://battery-kg.org/ontology#hasMaxContinuousDischargeCurrent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">hasMaxContinuousDischargeCurrent</rdfs:label>
+    <rdfs:domain rdf:resource="http://battery-kg.org/ontology#Battery"/>
+    <rdfs:range rdf:resource="http://battery-kg.org/ontology#QuantityValue"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://battery-kg.org/ontology#manufacturerName">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">manufacturerName</rdfs:label>
+    <rdfs:domain rdf:resource="http://battery-kg.org/ontology#Manufacturer"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://battery-kg.org/ontology#Gram">
+    <rdf:type rdf:resource="http://battery-kg.org/ontology#Unit"/>
+    <rdfs:label xml:lang="en">g</rdfs:label>
+    <skos:altLabel>gram</skos:altLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://battery-kg.org/ontology#hasWeight">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">hasWeight</rdfs:label>
+    <rdfs:domain rdf:resource="http://battery-kg.org/ontology#Battery"/>
+    <rdfs:range rdf:resource="http://battery-kg.org/ontology#QuantityValue"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://battery-kg.org/ontology#FormFactor">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">FormFactor</rdfs:label>
+    <rdfs:comment xml:lang="en">Controlled-vocabulary class for physical form factors.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://battery-kg.org/ontology#conditionTemperatureCelsius">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">conditionTemperatureCelsius</rdfs:label>
+    <rdfs:domain rdf:resource="http://battery-kg.org/ontology#QuantityValue"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://battery-kg.org/ontology#hasNominalVoltage">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">hasNominalVoltage</rdfs:label>
+    <rdfs:domain rdf:resource="http://battery-kg.org/ontology#Battery"/>
+    <rdfs:range rdf:resource="http://battery-kg.org/ontology#QuantityValue"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://battery-kg.org/ontology#hasChargeTemperatureRange">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">hasChargeTemperatureRange</rdfs:label>
+    <rdfs:domain rdf:resource="http://battery-kg.org/ontology#Battery"/>
+    <rdfs:range rdf:resource="http://battery-kg.org/ontology#TemperatureRange"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://battery-kg.org/ontology#Cylindrical">
+    <rdf:type rdf:resource="http://battery-kg.org/ontology#FormFactor"/>
+    <rdfs:label xml:lang="en">Cylindrical</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://battery-kg.org/ontology#minimumValue">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">minimumValue</rdfs:label>
+    <rdfs:comment xml:lang="en">Optional minimum guaranteed value (e.g. minimum capacity).</rdfs:comment>
+    <rdfs:domain rdf:resource="http://battery-kg.org/ontology#QuantityValue"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://battery-kg.org/ontology#hasChargeCutoffVoltage">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">hasChargeCutoffVoltage</rdfs:label>
+    <rdfs:domain rdf:resource="http://battery-kg.org/ontology#Battery"/>
+    <rdfs:range rdf:resource="http://battery-kg.org/ontology#QuantityValue"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://battery-kg.org/ontology#LiPolymer">
+    <rdf:type rdf:resource="http://battery-kg.org/ontology#Chemistry"/>
+    <rdfs:label xml:lang="en">Li-polymer</rdfs:label>
+    <skos:altLabel>Li-Po</skos:altLabel>
+    <skos:altLabel>Lithium-polymer</skos:altLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://battery-kg.org/ontology#hasStorageTemperatureRange">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">hasStorageTemperatureRange</rdfs:label>
+    <rdfs:domain rdf:resource="http://battery-kg.org/ontology#Battery"/>
+    <rdfs:range rdf:resource="http://battery-kg.org/ontology#TemperatureRange"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://battery-kg.org/ontology#Battery">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Battery</rdfs:label>
+    <rdfs:comment xml:lang="en">A battery cell or pack, as described by a single datasheet.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://battery-kg.org/ontology#numericValue">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">numericValue</rdfs:label>
+    <rdfs:domain rdf:resource="http://battery-kg.org/ontology#QuantityValue"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://battery-kg.org/ontology#sourceFile">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">sourceFile</rdfs:label>
+    <rdfs:domain rdf:resource="http://battery-kg.org/ontology#Battery"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://battery-kg.org/ontology#LiIon">
+    <rdf:type rdf:resource="http://battery-kg.org/ontology#Chemistry"/>
+    <rdfs:label xml:lang="en">Li-ion</rdfs:label>
+    <skos:altLabel>Li-Ion</skos:altLabel>
+    <skos:altLabel>Lithium-ion</skos:altLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://battery-kg.org/ontology#hasFormFactor">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">hasFormFactor</rdfs:label>
+    <rdfs:domain rdf:resource="http://battery-kg.org/ontology#Battery"/>
+    <rdfs:range rdf:resource="http://battery-kg.org/ontology#FormFactor"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://battery-kg.org/ontology#hasInternalResistance">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">hasInternalResistance</rdfs:label>
+    <rdfs:domain rdf:resource="http://battery-kg.org/ontology#Battery"/>
+    <rdfs:range rdf:resource="http://battery-kg.org/ontology#QuantityValue"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://battery-kg.org/ontology#NiMH">
+    <rdf:type rdf:resource="http://battery-kg.org/ontology#Chemistry"/>
+    <rdfs:label xml:lang="en">NiMH</rdfs:label>
+    <skos:altLabel>Nickel-Metal Hydride</skos:altLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://battery-kg.org/ontology#Coin">
+    <rdf:type rdf:resource="http://battery-kg.org/ontology#FormFactor"/>
+    <rdfs:label xml:lang="en">Coin</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://battery-kg.org/ontology#TemperatureRange">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">TemperatureRange</rdfs:label>
+    <rdfs:comment xml:lang="en">A temperature interval with min and max Celsius values.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://battery-kg.org/ontology#Ampere">
+    <rdf:type rdf:resource="http://battery-kg.org/ontology#Unit"/>
+    <rdfs:label xml:lang="en">A</rdfs:label>
+    <skos:altLabel>Ampere</skos:altLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://battery-kg.org/ontology#Celsius">
+    <rdf:type rdf:resource="http://battery-kg.org/ontology#Unit"/>
+    <rdfs:label xml:lang="en">°C</rdfs:label>
+    <skos:altLabel>degree Celsius</skos:altLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://battery-kg.org/ontology#Chemistry">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Chemistry</rdfs:label>
+    <rdfs:comment xml:lang="en">Controlled-vocabulary class for battery chemistries.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://battery-kg.org/ontology#Volt">
+    <rdf:type rdf:resource="http://battery-kg.org/ontology#Unit"/>
+    <rdfs:label xml:lang="en">V</rdfs:label>
+    <skos:altLabel>Volt</skos:altLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://battery-kg.org/ontology#Prismatic">
+    <rdf:type rdf:resource="http://battery-kg.org/ontology#FormFactor"/>
+    <rdfs:label xml:lang="en">Prismatic</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://battery-kg.org/ontology#OtherChemistry">
+    <rdf:type rdf:resource="http://battery-kg.org/ontology#Chemistry"/>
+    <rdfs:label xml:lang="en">Other</rdfs:label>
+  </rdf:Description>
+</rdf:RDF>
