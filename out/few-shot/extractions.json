@@ -6,12 +6,13 @@
     "chemistry": "Li-ion",
     "form_factor": "coin",
     "nominal_voltage_v": 3.6,
+    "nominal_voltage_v_raw": "Nominal Voltage 3.6V",
     "capacity": {
       "nominal_mah": 120.0,
       "minimum_mah": null,
       "c_rate_condition": "0.2C",
       "test_temperature_celsius": 20.0,
-      "raw": "Nominal Capacity: 120\u00b110mAh"
+      "raw": "Nominal Capacity 120\u00b110mAh"
     },
     "operating_temperature": {
       "min_celsius": -20.0,
@@ -21,11 +22,17 @@
     "charge_temperature": null,
     "storage_temperature": null,
     "charge_cutoff_voltage_v": 4.2,
+    "charge_cutoff_voltage_v_raw": "CC charge 0.2CmA / voltage up to 4.20V; Then CV charge",
     "discharge_cutoff_voltage_v": 2.75,
+    "discharge_cutoff_voltage_v_raw": "Discharge CC at 0.2CmA to 2.75V",
     "max_continuous_discharge_current_a": null,
+    "max_continuous_discharge_current_a_raw": null,
     "internal_resistance_mohm": 400.0,
+    "internal_resistance_mohm_raw": "Internal resistance \u2264400m\u03a9",
     "cycle_life": 300,
-    "weight_g": 5.0
+    "cycle_life_raw": "the cycle life of the battery can be \u2265300 circles while with capacity \u226580%",
+    "weight_g": 5.0,
+    "weight_g_raw": "Weight 5.0\u00b10.3g"
   },
   {
     "source_file": "16340-battery-datasheet.pdf",
@@ -34,6 +41,7 @@
     "chemistry": "LiFePO4",
     "form_factor": "cylindrical",
     "nominal_voltage_v": 3.2,
+    "nominal_voltage_v_raw": "Nominal Voltage 3.2 V",
     "capacity": {
       "nominal_mah": 500.0,
       "minimum_mah": 470.0,
@@ -45,11 +53,17 @@
     "charge_temperature": null,
     "storage_temperature": null,
     "charge_cutoff_voltage_v": 3.65,
+    "charge_cutoff_voltage_v_raw": "Charging Voltage 3.65 V",
     "discharge_cutoff_voltage_v": 2.0,
+    "discharge_cutoff_voltage_v_raw": "Discharge Cut-off Voltage 2.0 V",
     "max_continuous_discharge_current_a": 1.0,
+    "max_continuous_discharge_current_a_raw": "Continuous Discharging 1.0 A",
     "internal_resistance_mohm": 100.0,
+    "internal_resistance_mohm_raw": "Internal Impedance \u2264 100 m\u03a9",
     "cycle_life": null,
-    "weight_g": 17.0
+    "cycle_life_raw": null,
+    "weight_g": 17.0,
+    "weight_g_raw": "Battery Cell Weight \u2264 17 g"
   },
   {
     "source_file": "3.7V9059156.pdf",
@@ -58,6 +72,7 @@
     "chemistry": "Li-polymer",
     "form_factor": "pouch",
     "nominal_voltage_v": 3.7,
+    "nominal_voltage_v_raw": "Nominal Voltage 3.7V Average Voltage at 0.2C5A discharge",
     "capacity": {
       "nominal_mah": 11500.0,
       "minimum_mah": null,
@@ -78,14 +93,20 @@
     "storage_temperature": {
       "min_celsius": -20.0,
       "max_celsius": 45.0,
-      "raw": "-20\uff5e45\u2103"
+      "raw": "\u22641month -20\uff5e45\u2103"
     },
     "charge_cutoff_voltage_v": 4.2,
+    "charge_cutoff_voltage_v_raw": "Charge cut-off Voltage 4.20\u00b10.03V",
     "discharge_cutoff_voltage_v": 2.75,
-    "max_continuous_discharge_current_a": null,
+    "discharge_cutoff_voltage_v_raw": "Discharge cut-off Voltage 2.75 V",
+    "max_continuous_discharge_current_a": 23.0,
+    "max_continuous_discharge_current_a_raw": "Max Discharge Current 2.0C5A",
     "internal_resistance_mohm": 15.0,
+    "internal_resistance_mohm_raw": "Impedance \u226415m\u03a9 AC 1KHz after 50% charge",
     "cycle_life": 300,
-    "weight_g": 196.0
+    "cycle_life_raw": "Cycle Life \u2265300times",
+    "weight_g": 196.0,
+    "weight_g_raw": "Weight Approx: 196g"
   },
   {
     "source_file": "CATL-86Ah-3.2V-LiFePO4-Prismatic-Battery-Cell-SpecificationDatasheet.pdf",
@@ -94,12 +115,13 @@
     "chemistry": "LiFePO4",
     "form_factor": "prismatic",
     "nominal_voltage_v": 3.2,
+    "nominal_voltage_v_raw": "86Ah 3.2V \u50a8\u80fd\u7528\u78f7\u9178\u94c1\u9502\u7535\u6c60 Means the 86Ah 3.2V rechargeable lithium ion cells produced by CATL",
     "capacity": {
       "nominal_mah": 86000.0,
       "minimum_mah": null,
       "c_rate_condition": "0.5C",
       "test_temperature_celsius": 25.0,
-      "raw": "\u6807\u51c6\u5bb9\u91cf Typical capacity 86Ah 25\u00b12\u00b0C\uff0c0.5C/0.5C\uff0c\u65b0\u7535\u6c60\u72b6\u6001 25\u00b12\u00b0C, 0.5C/0.5C discharge, fresh cell"
+      "raw": "\u6807\u51c6\u5bb9\u91cf Typical capacity 86Ah 25\u00b12\u00b0C, 0.5C/0.5C discharge, fresh cell"
     },
     "operating_temperature": {
       "min_celsius": -20.0,
@@ -117,10 +139,41 @@
       "raw": "-30~60\u00b0C"
     },
     "charge_cutoff_voltage_v": 3.65,
+    "charge_cutoff_voltage_v_raw": "Standard charge voltage \u5355\u4f53\u7535\u6c60\u6700\u5927 3.65V Cell max voltage 3.65V",
     "discharge_cutoff_voltage_v": 2.5,
+    "discharge_cutoff_voltage_v_raw": "Discharge cut-off voltage 2.5V \u6e29\u5ea6\uff08Temp.\uff09T>0\u00b0C",
     "max_continuous_discharge_current_a": 86.0,
+    "max_continuous_discharge_current_a_raw": "Maximum discharge current (continuous) 1C",
     "internal_resistance_mohm": 0.32,
+    "internal_resistance_mohm_raw": "Impedance (1KHz) 0.32\u00b10.05m\u03a9",
     "cycle_life": 3500,
-    "weight_g": 2250.0
+    "cycle_life_raw": "25\u00b12\u2103 0.5/0.5C\u22653500\u6b21 100% DOD, under 300\u00b120Kgf preload",
+    "weight_g": 2250.0,
+    "weight_g_raw": "Cell Weight 2.25\u00b10.15Kg"
+  },
+  {
+    "source_file": "project.pdf",
+    "manufacturer": null,
+    "model": null,
+    "chemistry": null,
+    "form_factor": null,
+    "nominal_voltage_v": null,
+    "nominal_voltage_v_raw": null,
+    "capacity": null,
+    "operating_temperature": null,
+    "charge_temperature": null,
+    "storage_temperature": null,
+    "charge_cutoff_voltage_v": null,
+    "charge_cutoff_voltage_v_raw": null,
+    "discharge_cutoff_voltage_v": null,
+    "discharge_cutoff_voltage_v_raw": null,
+    "max_continuous_discharge_current_a": null,
+    "max_continuous_discharge_current_a_raw": null,
+    "internal_resistance_mohm": null,
+    "internal_resistance_mohm_raw": null,
+    "cycle_life": null,
+    "cycle_life_raw": null,
+    "weight_g": null,
+    "weight_g_raw": null
   }
 ]

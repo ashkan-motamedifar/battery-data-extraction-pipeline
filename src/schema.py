@@ -82,6 +82,10 @@ class BatterySpec(BaseModel):
         default=None,
         description="Nominal voltage in Volts.",
     )
+    nominal_voltage_v_raw: Optional[str] = Field(
+        default=None,
+        description="Original phrase from the datasheet supporting nominal_voltage_v.",
+    )
     capacity: Optional[Capacity] = None
     operating_temperature: Optional[TemperatureRange] = Field(
         default=None,
@@ -91,12 +95,43 @@ class BatterySpec(BaseModel):
     # --- Useful extras for Level 2 / Level 3 -----------------------------
     charge_temperature: Optional[TemperatureRange] = None
     storage_temperature: Optional[TemperatureRange] = None
+
     charge_cutoff_voltage_v: Optional[float] = None
+    charge_cutoff_voltage_v_raw: Optional[str] = Field(
+        default=None,
+        description="Original phrase supporting charge_cutoff_voltage_v.",
+    )
+
     discharge_cutoff_voltage_v: Optional[float] = None
+    discharge_cutoff_voltage_v_raw: Optional[str] = Field(
+        default=None,
+        description="Original phrase supporting discharge_cutoff_voltage_v.",
+    )
+
     max_continuous_discharge_current_a: Optional[float] = None
+    max_continuous_discharge_current_a_raw: Optional[str] = Field(
+        default=None,
+        description="Original phrase supporting max_continuous_discharge_current_a "
+                    "(may quote a C-rate that was converted to A).",
+    )
+
     internal_resistance_mohm: Optional[float] = None
+    internal_resistance_mohm_raw: Optional[str] = Field(
+        default=None,
+        description="Original phrase supporting internal_resistance_mohm.",
+    )
+
     cycle_life: Optional[int] = Field(
         default=None,
         description="Number of cycles to end-of-life (condition in raw).",
     )
+    cycle_life_raw: Optional[str] = Field(
+        default=None,
+        description="Original phrase supporting cycle_life.",
+    )
+
     weight_g: Optional[float] = None
+    weight_g_raw: Optional[str] = Field(
+        default=None,
+        description="Original phrase supporting weight_g (may quote kg that was converted to g).",
+    )

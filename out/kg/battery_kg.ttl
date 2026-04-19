@@ -174,6 +174,7 @@ battery:16340 a bat:Battery ;
 
 battery:FFH3DS a bat:Battery ;
     bat:cycleLife 3500 ;
+    bat:cycleLifeRawText "25±2℃ 0.5/0.5C≥3500次 100% DOD, under 300±20Kgf preload"^^xsd:string ;
     bat:hasCapacity qv:FFH3DS__capacity ;
     bat:hasChargeCutoffVoltage qv:FFH3DS__chargeCutoff ;
     bat:hasChargeTemperatureRange trange:FFH3DS__charge ;
@@ -192,6 +193,7 @@ battery:FFH3DS a bat:Battery ;
 
 battery:LIR2450 a bat:Battery ;
     bat:cycleLife 300 ;
+    bat:cycleLifeRawText "the cycle life of the battery can be ≥300 circles while with capacity ≥80%"^^xsd:string ;
     bat:hasCapacity qv:LIR2450__capacity ;
     bat:hasChargeCutoffVoltage qv:LIR2450__chargeCutoff ;
     bat:hasChemistry bat:LiIon ;
@@ -207,6 +209,7 @@ battery:LIR2450 a bat:Battery ;
 
 battery:PL_9059156 a bat:Battery ;
     bat:cycleLife 300 ;
+    bat:cycleLifeRawText "≥300times"^^xsd:string ;
     bat:hasCapacity qv:PL_9059156__capacity ;
     bat:hasChargeCutoffVoltage qv:PL_9059156__chargeCutoff ;
     bat:hasChargeTemperatureRange trange:PL_9059156__charge ;
@@ -261,120 +264,142 @@ qv:16340__capacity a bat:QuantityValue ;
     bat:hasUnit bat:MilliampHour ;
     bat:minimumValue 470.0 ;
     bat:numericValue 500.0 ;
-    bat:rawText "Nominal Capacity 500 mAh / Minimum Capacity 470 mAh"^^xsd:string .
+    bat:rawText "Nominal Capacity 500 mAh, Minimum Capacity 470 mAh"^^xsd:string .
 
 qv:16340__chargeCutoff a bat:QuantityValue ;
     bat:hasUnit bat:Volt ;
-    bat:numericValue 3.65 .
+    bat:numericValue 3.65 ;
+    bat:rawText "Charging Voltage 3.65 V"^^xsd:string .
 
 qv:16340__dischargeCutoff a bat:QuantityValue ;
     bat:hasUnit bat:Volt ;
-    bat:numericValue 2.0 .
+    bat:numericValue 2.0 ;
+    bat:rawText "Discharge Cut-off Voltage 2.0 V"^^xsd:string .
 
 qv:16340__internalResistance a bat:QuantityValue ;
     bat:hasUnit bat:MilliOhm ;
-    bat:numericValue 100.0 .
+    bat:numericValue 100.0 ;
+    bat:rawText "Internal Impedance ≤ 100 mΩ"^^xsd:string .
 
 qv:16340__maxDischargeCurrent a bat:QuantityValue ;
     bat:hasUnit bat:Ampere ;
-    bat:numericValue 1.0 .
+    bat:numericValue 1.0 ;
+    bat:rawText "Continuous Discharging 1.0 A"^^xsd:string .
 
 qv:16340__nominalVoltage a bat:QuantityValue ;
     bat:hasUnit bat:Volt ;
-    bat:numericValue 3.2 .
+    bat:numericValue 3.2 ;
+    bat:rawText "Nominal Voltage 3.2 V"^^xsd:string .
 
 qv:16340__weight a bat:QuantityValue ;
     bat:hasUnit bat:Gram ;
-    bat:numericValue 17.0 .
+    bat:numericValue 17.0 ;
+    bat:rawText "Battery Cell Weight ≤ 17 g"^^xsd:string .
 
 qv:FFH3DS__capacity a bat:QuantityValue ;
     bat:conditionCRate "0.5C"^^xsd:string ;
     bat:conditionTemperatureCelsius 25.0 ;
     bat:hasUnit bat:MilliampHour ;
     bat:numericValue 86000.0 ;
-    bat:rawText "86Ah 25±2°C, 0.5C/0.5C discharge, fresh cell"^^xsd:string .
+    bat:rawText "标准容量 Typical capacity 86Ah 25±2°C, 0.5C/0.5C discharge, fresh cell"^^xsd:string .
 
 qv:FFH3DS__chargeCutoff a bat:QuantityValue ;
     bat:hasUnit bat:Volt ;
-    bat:numericValue 3.65 .
+    bat:numericValue 3.65 ;
+    bat:rawText "Standard charge voltage 单体电池最大 3.65V Cell max voltage 3.65V"^^xsd:string .
 
 qv:FFH3DS__dischargeCutoff a bat:QuantityValue ;
     bat:hasUnit bat:Volt ;
-    bat:numericValue 2.5 .
+    bat:numericValue 2.5 ;
+    bat:rawText "Discharge cut-off voltage 2.5V 温度（Temp.）T>0°C"^^xsd:string .
 
 qv:FFH3DS__internalResistance a bat:QuantityValue ;
     bat:hasUnit bat:MilliOhm ;
-    bat:numericValue 0.32 .
+    bat:numericValue 0.32 ;
+    bat:rawText "Impedance (1KHz) 0.32±0.05mΩ"^^xsd:string .
 
 qv:FFH3DS__maxDischargeCurrent a bat:QuantityValue ;
     bat:hasUnit bat:Ampere ;
-    bat:numericValue 86.0 .
+    bat:numericValue 86.0 ;
+    bat:rawText "Maximum discharge current (continuous) 1C"^^xsd:string .
 
 qv:FFH3DS__nominalVoltage a bat:QuantityValue ;
     bat:hasUnit bat:Volt ;
-    bat:numericValue 3.2 .
+    bat:numericValue 3.2 ;
+    bat:rawText "86Ah 3.2V 储能用磷酸铁锂电池"^^xsd:string .
 
 qv:FFH3DS__weight a bat:QuantityValue ;
     bat:hasUnit bat:Gram ;
-    bat:numericValue 2250.0 .
+    bat:numericValue 2250.0 ;
+    bat:rawText "Cell Weight 2.25±0.15Kg"^^xsd:string .
 
 qv:LIR2450__capacity a bat:QuantityValue ;
     bat:conditionCRate "0.2C"^^xsd:string ;
     bat:conditionTemperatureCelsius 20.0 ;
     bat:hasUnit bat:MilliampHour ;
-    bat:minimumValue 110.0 ;
     bat:numericValue 120.0 ;
-    bat:rawText "120±10mAh"^^xsd:string .
+    bat:rawText "Nominal Capacity 120±10mAh"^^xsd:string .
 
 qv:LIR2450__chargeCutoff a bat:QuantityValue ;
     bat:hasUnit bat:Volt ;
-    bat:numericValue 4.2 .
+    bat:numericValue 4.2 ;
+    bat:rawText "CC charge 0.2CmA / voltage up to 4.20V"^^xsd:string .
 
 qv:LIR2450__dischargeCutoff a bat:QuantityValue ;
     bat:hasUnit bat:Volt ;
-    bat:numericValue 2.75 .
+    bat:numericValue 2.75 ;
+    bat:rawText "Discharge CC at 0.2CmA to 2.75V"^^xsd:string .
 
 qv:LIR2450__internalResistance a bat:QuantityValue ;
     bat:hasUnit bat:MilliOhm ;
-    bat:numericValue 400.0 .
+    bat:numericValue 400.0 ;
+    bat:rawText "Internal resistance ≤400mΩ"^^xsd:string .
 
 qv:LIR2450__nominalVoltage a bat:QuantityValue ;
     bat:hasUnit bat:Volt ;
-    bat:numericValue 3.6 .
+    bat:numericValue 3.6 ;
+    bat:rawText "Nominal Voltage 3.6V"^^xsd:string .
 
 qv:LIR2450__weight a bat:QuantityValue ;
     bat:hasUnit bat:Gram ;
-    bat:numericValue 5.0 .
+    bat:numericValue 5.0 ;
+    bat:rawText "Weight 5.0±0.3g"^^xsd:string .
 
 qv:PL_9059156__capacity a bat:QuantityValue ;
-    bat:conditionCRate "0.2C5A"^^xsd:string ;
+    bat:conditionCRate "0.2C"^^xsd:string ;
     bat:hasUnit bat:MilliampHour ;
-    bat:numericValue 10000.0 ;
-    bat:rawText "Nominal Capacity 11500 mAh 0.2C5A discharge; Typial Capacity 10000 mAh 0.2C5A discharge"^^xsd:string .
+    bat:numericValue 11500.0 ;
+    bat:rawText "Nominal Capacity 11500 mAh 0.2C5A discharge"^^xsd:string .
 
 qv:PL_9059156__chargeCutoff a bat:QuantityValue ;
     bat:hasUnit bat:Volt ;
-    bat:numericValue 4.2 .
+    bat:numericValue 4.2 ;
+    bat:rawText "Charge cut-off Voltage 4.20±0.03V"^^xsd:string .
 
 qv:PL_9059156__dischargeCutoff a bat:QuantityValue ;
     bat:hasUnit bat:Volt ;
-    bat:numericValue 2.75 .
+    bat:numericValue 2.75 ;
+    bat:rawText "Discharge cut-off Voltage 2.75 V"^^xsd:string .
 
 qv:PL_9059156__internalResistance a bat:QuantityValue ;
     bat:hasUnit bat:MilliOhm ;
-    bat:numericValue 15.0 .
+    bat:numericValue 15.0 ;
+    bat:rawText "Impedance ≤15mΩ AC 1KHz after 50% charge"^^xsd:string .
 
 qv:PL_9059156__maxDischargeCurrent a bat:QuantityValue ;
     bat:hasUnit bat:Ampere ;
-    bat:numericValue 23.0 .
+    bat:numericValue 23.0 ;
+    bat:rawText "Max Discharge Current 2.0C5A"^^xsd:string .
 
 qv:PL_9059156__nominalVoltage a bat:QuantityValue ;
     bat:hasUnit bat:Volt ;
-    bat:numericValue 3.7 .
+    bat:numericValue 3.7 ;
+    bat:rawText "Nominal Voltage 3.7V Average Voltage at 0.2C5A discharge"^^xsd:string .
 
 qv:PL_9059156__weight a bat:QuantityValue ;
     bat:hasUnit bat:Gram ;
-    bat:numericValue 196.0 .
+    bat:numericValue 196.0 ;
+    bat:rawText "Weight Approx: 196g"^^xsd:string .
 
 trange:FFH3DS__charge a bat:TemperatureRange ;
     bat:maxCelsius 60.0 ;
@@ -394,7 +419,7 @@ trange:FFH3DS__storage a bat:TemperatureRange ;
 trange:LIR2450__operating a bat:TemperatureRange ;
     bat:maxCelsius 60.0 ;
     bat:minCelsius -20.0 ;
-    bat:rawText "﹣20℃—60℃"^^xsd:string .
+    bat:rawText "Working temperature range: ﹣20℃—60℃"^^xsd:string .
 
 trange:PL_9059156__charge a bat:TemperatureRange ;
     bat:maxCelsius 40.0 ;
@@ -409,7 +434,7 @@ trange:PL_9059156__operating a bat:TemperatureRange ;
 trange:PL_9059156__storage a bat:TemperatureRange ;
     bat:maxCelsius 45.0 ;
     bat:minCelsius -20.0 ;
-    bat:rawText "-20～45℃ (≤1month)"^^xsd:string .
+    bat:rawText "≤1month -20～45℃"^^xsd:string .
 
 bat:LiFePO4 a bat:Chemistry ;
     rdfs:label "LiFePO4"@en ;

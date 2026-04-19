@@ -5,14 +5,21 @@
   "chemistry": null,
   "form_factor": null,
   "nominal_voltage_v": null,
+  "nominal_voltage_v_raw": null,
   "capacity": null,
   "operating_temperature": null,
   "charge_temperature": null,
   "storage_temperature": null,
   "charge_cutoff_voltage_v": null,
+  "charge_cutoff_voltage_v_raw": null,
   "discharge_cutoff_voltage_v": null,
+  "discharge_cutoff_voltage_v_raw": null,
   "max_continuous_discharge_current_a": null,
+  "max_continuous_discharge_current_a_raw": null,
   "internal_resistance_mohm": null,
+  "internal_resistance_mohm_raw": null,
   "cycle_life": null,
-  "weight_g": null
+  "cycle_life_raw": null,
+  "weight_g": null,
+  "weight_g_raw": null
 }

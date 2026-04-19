@@ -5,12 +5,13 @@
   "chemistry": "LiFePO4",
   "form_factor": "prismatic",
   "nominal_voltage_v": 3.2,
+  "nominal_voltage_v_raw": "86Ah 3.2V 储能用磷酸铁锂电池 Means the 86Ah 3.2V rechargeable lithium ion cells produced by CATL",
   "capacity": {
     "nominal_mah": 86000.0,
     "minimum_mah": null,
     "c_rate_condition": "0.5C",
     "test_temperature_celsius": 25.0,
-    "raw": "标准容量 Typical capacity 86Ah 25±2°C，0.5C/0.5C，新电池状态 25±2°C, 0.5C/0.5C discharge, fresh cell"
+    "raw": "标准容量 Typical capacity 86Ah 25±2°C, 0.5C/0.5C discharge, fresh cell"
   },
   "operating_temperature": {
     "min_celsius": -20.0,
@@ -28,9 +29,15 @@
     "raw": "-30~60°C"
   },
   "charge_cutoff_voltage_v": 3.65,
+  "charge_cutoff_voltage_v_raw": "Standard charge voltage 单体电池最大 3.65V Cell max voltage 3.65V",
   "discharge_cutoff_voltage_v": 2.5,
+  "discharge_cutoff_voltage_v_raw": "Discharge cut-off voltage 2.5V 温度（Temp.）T>0°C",
   "max_continuous_discharge_current_a": 86.0,
+  "max_continuous_discharge_current_a_raw": "Maximum discharge current (continuous) 1C",
   "internal_resistance_mohm": 0.32,
+  "internal_resistance_mohm_raw": "Impedance (1KHz) 0.32±0.05mΩ",
   "cycle_life": 3500,
-  "weight_g": 2250.0
+  "cycle_life_raw": "25±2℃ 0.5/0.5C≥3500次 100% DOD, under 300±20Kgf preload",
+  "weight_g": 2250.0,
+  "weight_g_raw": "Cell Weight 2.25±0.15Kg"
 }

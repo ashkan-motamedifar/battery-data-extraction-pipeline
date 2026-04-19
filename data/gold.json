@@ -11,12 +11,12 @@
       "minimum_mah": null,
       "c_rate_condition": "0.2C",
       "test_temperature_celsius": 20.0,
-      "raw": null
+      "raw": "pe LIR2450 1.2 Nominal V oltage 3.6V 1.3 Nominal Capacity 120\u00b110mAh 1.4 Internal resistance \u2264400m\u2126 diameter 24.5mm -0.2"
     },
     "operating_temperature": {
       "min_celsius": -20.0,
       "max_celsius": 60.0,
-      "raw": null
+      "raw": "Working temperature range: \ufe6320\u2103\u201460\u2103 Storage temperature\uff1a20\u2103\u00b11 LIR2450 Datasheet Li-ion Bat"
     },
     "charge_temperature": null,
     "storage_temperature": null,
@@ -25,7 +25,14 @@
     "max_continuous_discharge_current_a": null,
     "internal_resistance_mohm": 400.0,
     "cycle_life": 300,
-    "weight_g": 5.0
+    "weight_g": 5.0,
+    "nominal_voltage_v_raw": "usage. 8.4High working voltage Working voltage is up to 3.6V , approx. 3 times of the voltage of NI-MH or NI-CD, which",
+    "charge_cutoff_voltage_v_raw": "resistance test standard: CC charge 0.2CmA / voltage up to 4.20V; Then CV charge. Terminate charging when the charging cur",
+    "discharge_cutoff_voltage_v_raw": "est for no more than 10 minutes, Discharge CC at 0.2CmA to 2.75V . 2.3 Fast Charge/Discharge Characteristics Temperatur",
+    "max_continuous_discharge_current_a_raw": null,
+    "internal_resistance_mohm_raw": "V 1.3 Nominal Capacity 120\u00b110mAh 1.4 Internal resistance \u2264400m\u2126 diameter 24.5mm -0.2 1.5 Dimension Height 5.0mm+0.35",
+    "cycle_life_raw": "Under normal usage, the cycle life of the battery can be \u2265300 circles while with capacity \u226580% 8.2High Power Density",
+    "weight_g_raw": "stance \u2264400m\u2126 diameter 24.5mm -0.2 1.5 Dimension Height 5.0mm+0.35 1.6 Weight 5.0\u00b10.3g Note: Internal resistance test"
   },
   {
     "source_file": "16340-battery-datasheet.pdf",
@@ -39,7 +46,7 @@
       "minimum_mah": 470.0,
       "c_rate_condition": null,
       "test_temperature_celsius": 25.0,
-      "raw": null
+      "raw": "attery Cell Model: 16340 1. Specifications Nominal Capacity 500 mAh Minimum Capacity 470 mAh 100 mA 2.0 V 2. Product Drawin"
     },
     "operating_temperature": null,
     "charge_temperature": null,
@@ -49,7 +56,14 @@
     "max_continuous_discharge_current_a": 1.0,
     "internal_resistance_mohm": 100.0,
     "cycle_life": null,
-    "weight_g": 17.0
+    "weight_g": 17.0,
+    "nominal_voltage_v_raw": "SPECIFICATIONS Internal Impedance \u2264 100 m\u2126 Nominal Voltage 3.2 V Battery Cell Model: 16340 1. Specifications Nominal Capac",
+    "charge_cutoff_voltage_v_raw": "470 mAh 100 mA 2.0 V 2. Product Drawing Battery Cell Weight 3.65 V \u2264 17 g Charging Voltage 5. Characteristics: Cycle Life En",
+    "discharge_cutoff_voltage_v_raw": "ns Nominal Capacity 500 mAh Minimum Capacity 470 mAh 100 mA 2.0 V 2. Product Drawing Battery Cell Weight 3.65 V \u2264 17 g Char",
+    "max_continuous_discharge_current_a_raw": "g Charging Voltage 5. Characteristics: Cycle Life Energy \u2264 1.6 Wh Continuous Discharging 1. 0 A Quick Charging 500 mA (",
+    "internal_resistance_mohm_raw": "ITHIUM-ION BATTERY CELL SPECIFICATIONS Internal Impedance \u2264 100 m\u2126 Nominal Voltage 3.2 V Battery Cell Model: 16340 1. Speci",
+    "cycle_life_raw": null,
+    "weight_g_raw": "00 mA 2.0 V 2. Product Drawing Battery Cell Weight 3.65 V \u2264 17 g Charging Voltage 5. Characteristics: Cycle Life Energy \u2264"
   },
   {
     "source_file": "3.7V9059156.pdf",
@@ -63,29 +77,36 @@
       "minimum_mah": null,
       "c_rate_condition": "0.2C5A",
       "test_temperature_celsius": 20.0,
-      "raw": null
+      "raw": "Specification Item Specifications Remark Nominal Capacity 11500 mAh 0.2C 5A discharge Typial Capacity 10000 mAh 0.2C 5A d"
     },
     "operating_temperature": {
       "min_celsius": -20.0,
       "max_celsius": 60.0,
-      "raw": null
+      "raw": "Working temperature \uff1a0\uff5e40\u2103 Charge cut-off V oltage 4.20\u00b10.03V Standard Discharge Current 0.2C 5A"
     },
     "charge_temperature": {
       "min_celsius": 0.0,
       "max_celsius": 40.0,
-      "raw": null
+      "raw": "Working temperature \uff1a0\uff5e40\u2103 Charge cut-off V oltage 4.20\u00b10.03V Standard Discharge Current 0.2C 5A"
     },
     "storage_temperature": {
       "min_celsius": -20.0,
       "max_celsius": 45.0,
-      "raw": null
+      "raw": "Storage temperature \u22646month 20\u00b15\u2103 Storage humidity 65 \u00b120% RH Best 20\u00b15\u2103 for long-time storage"
     },
     "charge_cutoff_voltage_v": 4.2,
     "discharge_cutoff_voltage_v": 2.75,
     "max_continuous_discharge_current_a": 23.0,
     "internal_resistance_mohm": 15.0,
     "cycle_life": 300,
-    "weight_g": 196.0
+    "weight_g": 196.0,
+    "nominal_voltage_v_raw": "ial Capacity 10000 mAh 0.2C 5A discharge Nominal V oltage 3.7V Average V oltage at 0.2C5A discharge Charge Current Stand",
+    "charge_cutoff_voltage_v_raw": "ax\uff1a1C5A Working temperature \uff1a0\uff5e40\u2103 Charge cut-off V oltage 4.20\u00b10.03V Standard Discharge Current 0.2C 5A Working temperat",
+    "discharge_cutoff_voltage_v_raw": "to 0.05C 5A, stay 5min \uff0cconstant current 1C5A discharge to 2.75V\uff0cstay 5min. Repeat above steps till continuously dischargi",
+    "max_continuous_discharge_current_a_raw": "Max Discharge Current 2.0C 5A Working temperature \uff1a0\uff5e60\u2103 Discharge cut-off V oltage 2.75 V Cell V",
+    "internal_resistance_mohm_raw": "V Cell V oltage 3.7-3.9 V When leave factory Impedance \u226415m\u03a9 AC 1KHz after 50% charge Weight Approx: 196 g \u22641month",
+    "cycle_life_raw": "C 5A to voltage 2.75V , recording the discharging time. \u2265300min 4.2 1C Capacity After standard charging, laying the ba",
+    "weight_g_raw": "y Impedance \u226415m\u03a9 AC 1KHz after 50% charge Weight Approx: 196 g \u22641month -20\uff5e45\u2103 \u22643month 0\uff5e30\u2103 Storage temperature \u22646"
   },
   {
     "source_file": "CATL-86Ah-3.2V-LiFePO4-Prismatic-Battery-Cell-SpecificationDatasheet.pdf",
@@ -99,28 +120,35 @@
       "minimum_mah": null,
       "c_rate_condition": "0.5C",
       "test_temperature_celsius": 25.0,
-      "raw": null
+      "raw": "f 86Ah Cell 86Ah \u4ea7\u54c1\u89c4\u683c\u4e66 86Ah \u4ea7\u54c1\u89c4\u683c\u4e66 Product Specification of 86Ah Cell \u7535\u82af\u578b\u53f7 Cell Model\uff1a FFH3DS \u7535\u82af\u5bb9\u91cf Cell Capacity\uff1a 86Ah \u4ea7\u54c1\u8bbe"
     },
     "operating_temperature": {
       "min_celsius": -20.0,
       "max_celsius": 60.0,
-      "raw": null
+      "raw": "operation temperature as set out in paragraphs 2.1.7\u30012.1.8&2.1.10, otherwise it may cause fire. At"
     },
     "charge_temperature": {
       "min_celsius": 0.0,
       "max_celsius": 60.0,
-      "raw": null
+      "raw": "charging temperature. It is forbidden to charge under the tempe rature stipulated in this technical"
     },
     "storage_temperature": {
       "min_celsius": -30.0,
       "max_celsius": 60.0,
-      "raw": null
+      "raw": "Storage Temp. -30~60\u00b0C \u5b58\u50a8\u73af\u5883\u6e7f\u5ea6\u226495%ROH\uff0c\u65e0\u51dd\u9732 Storage ambient humidity < 95% ROH, no condensation 2."
     },
     "charge_cutoff_voltage_v": 3.65,
     "discharge_cutoff_voltage_v": 2.5,
     "max_continuous_discharge_current_a": 86.0,
     "internal_resistance_mohm": 0.32,
     "cycle_life": 3500,
-    "weight_g": 2250.0
+    "weight_g": 2250.0,
+    "nominal_voltage_v_raw": "s \u5b9a\u4e49 Definition \u4ea7\u54c1 Product \u672c\u6280\u672f\u534f\u8bae \u4e2d\u7684\u201c\u4ea7\u54c1\u201d\u662f\u6307 CATL \u751f\u4ea7\u7684 86Ah 3.2V \u50a8\u80fd\u7528\u78f7\u9178\u94c1\u9502\u7535\u6c60\u3002 Means the 86Ah 3.2V rechargeable lithium ion ce",
+    "charge_cutoff_voltage_v_raw": "5C 25\u00b1 2 o C 2.2.2 \u6807\u51c6\u5145\u7535\u7535\u538b Standard charge voltage \u5355\u4f53\u7535\u6c60\u6700\u5927 3.65V Cell max voltage 3.65V N.A. 2.2.3 \u6807\u51c6\u5145\u7535\u6a21\u5f0f Standard char",
+    "discharge_cutoff_voltage_v_raw": "aragraph 2.3.1 of 0.5C with a discharge cut-off voltage of 2.5 V as set out in paragraph 2.3.5; \u5145\u7535\u72b6\u6001(SOC) State of Char",
+    "max_continuous_discharge_current_a_raw": "ry.com Document #: Rev: 1.5 \u578b\u53f7: Product Specification of 86Ah Cell 86Ah \u4ea7\u54c1\u89c4\u683c\u4e66 86Ah \u4ea7\u54c1\u89c4\u683c\u4e66 Product Specification of 86Ah",
+    "internal_resistance_mohm_raw": "T\u22640\u00b0C Cell temperature T\u22640\u00b0C 2.1.4 \u7535\u6c60\u5185\u963b Im pedance (1KHz) 0.32\u00b1 0.05m\u2126 \u65b0\u7535\u6c60\u72b6\u6001\uff0830%~40%SOC\uff09 Fresh cell \uff0830%~40%SOC\uff09",
+    "cycle_life_raw": "Cycle life \u5355\u4f53\u5bb9\u91cf\u8870\u51cf\u81f3 69Ah: Fading to 69Ah: 25\u00b1 2\u2103 0.5/0.5C\u22653500\u6b21 100% DOD\uff0c300\u00b120Kgf \u538b\u529b\u4e0b 100% DOD, under 300\u00b1 20Kgf preload",
+    "weight_g_raw": "Weight 2.25\u00b1 0.15Kg N.A. 2.1.10 \u5b58\u50a8\u6e29\u5ea6 Storage Temp. -30~60\u00b0C \u5b58\u50a8\u73af\u5883\u6e7f\u5ea6\u226495%ROH\uff0c\u65e0\u51dd\u9732 Storage ambient hum"
   }
 ]

@@ -5,6 +5,7 @@
   "chemistry": "Li-polymer",
   "form_factor": "pouch",
   "nominal_voltage_v": 3.7,
+  "nominal_voltage_v_raw": "Nominal Voltage 3.7V Average Voltage at 0.2C5A discharge",
   "capacity": {
     "nominal_mah": 11500.0,
     "minimum_mah": null,
@@ -25,12 +26,18 @@
   "storage_temperature": {
     "min_celsius": -20.0,
     "max_celsius": 45.0,
-    "raw": "-20～45℃"
+    "raw": "≤1month -20～45℃"
   },
   "charge_cutoff_voltage_v": 4.2,
+  "charge_cutoff_voltage_v_raw": "Charge cut-off Voltage 4.20±0.03V",
   "discharge_cutoff_voltage_v": 2.75,
-  "max_continuous_discharge_current_a": null,
+  "discharge_cutoff_voltage_v_raw": "Discharge cut-off Voltage 2.75 V",
+  "max_continuous_discharge_current_a": 23.0,
+  "max_continuous_discharge_current_a_raw": "Max Discharge Current 2.0C5A",
   "internal_resistance_mohm": 15.0,
+  "internal_resistance_mohm_raw": "Impedance ≤15mΩ AC 1KHz after 50% charge",
   "cycle_life": 300,
-  "weight_g": 196.0
+  "cycle_life_raw": "Cycle Life ≥300times",
+  "weight_g": 196.0,
+  "weight_g_raw": "Weight Approx: 196g"
 }

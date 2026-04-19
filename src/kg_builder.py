@@ -179,7 +179,8 @@ def _add_battery(g: Graph, spec: dict) -> None:
     # Nominal voltage
     if (v := spec.get("nominal_voltage_v")) is not None:
         _add_quantity_value(g, bat_uri, BAT.hasNominalVoltage,
-                            bat_slug, "nominalVoltage", v, BAT.Volt)
+                            bat_slug, "nominalVoltage", v, BAT.Volt,
+                            raw_text=spec.get("nominal_voltage_v_raw"))
 
     # Capacity
     if cap := spec.get("capacity"):
@@ -195,29 +196,38 @@ def _add_battery(g: Graph, spec: dict) -> None:
     # Cutoff voltages
     if (v := spec.get("charge_cutoff_voltage_v")) is not None:
         _add_quantity_value(g, bat_uri, BAT.hasChargeCutoffVoltage,
-                            bat_slug, "chargeCutoff", v, BAT.Volt)
+                            bat_slug, "chargeCutoff", v, BAT.Volt,
+                            raw_text=spec.get("charge_cutoff_voltage_v_raw"))
     if (v := spec.get("discharge_cutoff_voltage_v")) is not None:
         _add_quantity_value(g, bat_uri, BAT.hasDischargeCutoffVoltage,
-                            bat_slug, "dischargeCutoff", v, BAT.Volt)
+                            bat_slug, "dischargeCutoff", v, BAT.Volt,
+                            raw_text=spec.get("discharge_cutoff_voltage_v_raw"))
 
     # Max continuous discharge current
     if (a := spec.get("max_continuous_discharge_current_a")) is not None:
         _add_quantity_value(g, bat_uri, BAT.hasMaxContinuousDischargeCurrent,
-                            bat_slug, "maxDischargeCurrent", a, BAT.Ampere)
+                            bat_slug, "maxDischargeCurrent", a, BAT.Ampere,
+                            raw_text=spec.get("max_continuous_discharge_current_a_raw"))
 
     # Internal resistance
     if (r := spec.get("internal_resistance_mohm")) is not None:
         _add_quantity_value(g, bat_uri, BAT.hasInternalResistance,
-                            bat_slug, "internalResistance", r, BAT.MilliOhm)
+                            bat_slug, "internalResistance", r, BAT.MilliOhm,
+                            raw_text=spec.get("internal_resistance_mohm_raw"))
 
     # Weight
     if (w := spec.get("weight_g")) is not None:
         _add_quantity_value(g, bat_uri, BAT.hasWeight,
-                            bat_slug, "weight", w, BAT.Gram)
+                            bat_slug, "weight", w, BAT.Gram,
+                            raw_text=spec.get("weight_g_raw"))
 
     # Cycle life (integer data property, no unit)
     if (c := spec.get("cycle_life")) is not None:
         g.add((bat_uri, BAT.cycleLife, Literal(int(c), datatype=XSD.integer)))
+        if (raw := spec.get("cycle_life_raw")):
+            # Cycle life is a flat data property (no QV), but we still want
+            # provenance for Level 3 -- attach as a reified statement note.
+            g.add((bat_uri, BAT.cycleLifeRawText, Literal(raw, datatype=XSD.string)))
 
     # Temperature ranges
     if tr := spec.get("operating_temperature"):

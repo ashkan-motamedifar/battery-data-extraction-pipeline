@@ -5,20 +5,27 @@
   "chemistry": "LiFePO4",
   "form_factor": "cylindrical",
   "nominal_voltage_v": 3.2,
+  "nominal_voltage_v_raw": "Nominal Voltage 3.2 V",
   "capacity": {
     "nominal_mah": 500.0,
     "minimum_mah": 470.0,
     "c_rate_condition": null,
     "test_temperature_celsius": null,
-    "raw": "Nominal Capacity 500 mAh / Minimum Capacity 470 mAh"
+    "raw": "Nominal Capacity 500 mAh, Minimum Capacity 470 mAh"
   },
   "operating_temperature": null,
   "charge_temperature": null,
   "storage_temperature": null,
   "charge_cutoff_voltage_v": 3.65,
+  "charge_cutoff_voltage_v_raw": "Charging Voltage 3.65 V",
   "discharge_cutoff_voltage_v": 2.0,
+  "discharge_cutoff_voltage_v_raw": "Discharge Cut-off Voltage 2.0 V",
   "max_continuous_discharge_current_a": 1.0,
+  "max_continuous_discharge_current_a_raw": "Continuous Discharging 1.0 A",
   "internal_resistance_mohm": 100.0,
+  "internal_resistance_mohm_raw": "Internal Impedance ≤ 100 mΩ",
   "cycle_life": null,
-  "weight_g": 17.0
+  "cycle_life_raw": null,
+  "weight_g": 17.0,
+  "weight_g_raw": "Battery Cell Weight ≤ 17 g"
 }

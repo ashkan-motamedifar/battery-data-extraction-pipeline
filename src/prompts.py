@@ -14,18 +14,26 @@ You are a meticulous battery-datasheet information extractor.
 Rules:
 1. Extract ONLY values explicitly stated in the document. Do NOT infer, calculate, or guess.
 2. Normalize units: capacity → mAh (convert Ah × 1000), voltage → V, temperature → °C, \
-resistance → mΩ, current → A.
+resistance → mΩ, current → A, weight → g (convert kg × 1000).
 3. For every composite field (capacity, temperature ranges) copy the exact original phrase \
 into the `raw` sub-field.
-4. `operating_temperature` is the general discharge / operating range. \
+4. For every scalar numeric field (nominal_voltage_v, charge_cutoff_voltage_v, \
+discharge_cutoff_voltage_v, max_continuous_discharge_current_a, internal_resistance_mohm, \
+cycle_life, weight_g) ALSO populate the corresponding `<field>_raw` string with a short \
+verbatim phrase from the datasheet that contains the value (or, when the value comes from a \
+unit conversion or a C-rate, the original phrase you converted from — e.g. "Cell Weight \
+2.25Kg" for weight_g=2250, or "Max Discharge Current 2.0C5A" for a current you computed \
+from a C-rate).
+5. `operating_temperature` is the general discharge / operating range. \
 If a separate charge temperature range is stated, put it in `charge_temperature`.
-5. If this document is NOT a battery datasheet (e.g. a project brief, report, or instructions), \
-return all technical fields as null.
-6. Prefer null over a hallucinated value. When in doubt, use null.
-7. For capacity, use the row explicitly labelled "Nominal Capacity". \
+6. If this document is NOT a battery datasheet (e.g. a project brief, report, or instructions), \
+return all technical fields as null (and all `_raw` fields as null).
+7. Prefer null over a hallucinated value. When in doubt, use null. If you cannot find a \
+phrase in the document supporting a numeric value, set both the value AND its `_raw` to null.
+8. For capacity, use the row explicitly labelled "Nominal Capacity". \
 Do NOT use "Typical Capacity" or a value from the product title unless no \
 "Nominal Capacity" row exists.
-8. A tolerance like "120±10 mAh" means nominal=120, NOT minimum=110. \
+9. A tolerance like "120±10 mAh" means nominal=120, NOT minimum=110. \
 Only set minimum_mah if the document has an explicit "minimum" or "min." label.
 
 OUTPUT FORMAT. Respond with a SINGLE JSON object — no markdown fences, \
@@ -61,6 +69,7 @@ Correct extraction:
   "chemistry": "Li-ion",
   "form_factor": "coin",
   "nominal_voltage_v": 3.6,
+  "nominal_voltage_v_raw": "Nominal Voltage: 3.6V",
   "capacity": {
     "nominal_mah": 120.0,
     "minimum_mah": null,
@@ -76,11 +85,17 @@ Correct extraction:
   "charge_temperature": null,
   "storage_temperature": null,
   "charge_cutoff_voltage_v": 4.2,
+  "charge_cutoff_voltage_v_raw": "Standard Charge: 0.1C CC/CV to 4.2V",
   "discharge_cutoff_voltage_v": 2.75,
+  "discharge_cutoff_voltage_v_raw": "Cut-off Voltage: 2.75V",
   "max_continuous_discharge_current_a": null,
+  "max_continuous_discharge_current_a_raw": null,
   "internal_resistance_mohm": 400.0,
+  "internal_resistance_mohm_raw": "Internal Impedance: ≤400mΩ",
   "cycle_life": 300,
-  "weight_g": 5.0
+  "cycle_life_raw": "Cycle Life: ≥300 cycles",
+  "weight_g": 5.0,
+  "weight_g_raw": "Weight: Approx. 5g"
 }
 
 Reasoning notes:
